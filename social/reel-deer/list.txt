@@ -1,0 +1,13 @@
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_00.png'
+duration 2.5
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_01.png'
+duration 2.7
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_02.png'
+duration 2.5
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_03.png'
+duration 3.0
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_04.png'
+duration 2.7
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_05.png'
+duration 4.0
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-deer/beat_05.png'

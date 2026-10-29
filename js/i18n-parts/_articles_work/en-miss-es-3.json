@@ -1,0 +1,8 @@
+{
+  "page.connType.same-as-me.h3.other-connection-types": "Other connection types",
+  "page.connType.same-as-me.li.rainbow": "<a href=\"connection-rainbow.html?v=20260807\">Rainbow</a>",
+  "page.connType.same-as-me.li.shadow": "<a href=\"connection-shadow.html?v=20260807\">Shadow</a>",
+  "page.connType.same-as-me.li.mirror-opposite": "<a href=\"connection-mirror-opposite.html?v=20260807\">Mirror Opposite</a>",
+  "page.connType.same-as-me.li.values-trine": "<a href=\"connection-values-trine.html?v=20260807\">Values Trine</a>",
+  "page.connType.same-as-me.h2.find-same-as-me-matches": "Find Same-As-Me Matches"
+}

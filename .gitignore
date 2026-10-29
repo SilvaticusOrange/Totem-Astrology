@@ -1,0 +1,18 @@
+.DS_Store
+.cursor/
+.tmp_translate_deps/
+node_modules/
+*.zip
+data/*.db
+data/*.db-journal
+data/connections-config.php
+
+# Expo / React Native native projects (regenerated via prebuild)
+app/ios/
+app/android/
+app/.expo/
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+*.orig.*

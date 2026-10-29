@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+<!-- page rev 20260902 — in-site i18n catalogs (57 languages) -->
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="0" http-equiv="Expires"/>
+<meta content="20260909" name="page-version"/>
+<script>
+    (function () {
+      var PAGE_VERSION = '20260909';
+      var params = new URLSearchParams(location.search);
+      if (params.get('v') !== PAGE_VERSION) {
+        params.set('v', PAGE_VERSION);
+        location.replace(location.pathname + '?' + params.toString() + location.hash);
+      }
+    })();
+  </script>
+<meta content="TotemAstrology.com — personalized Totem Astrology readings, relationship compatibility, and guidance rooted in ancient wisdom." name="description"/>
+<meta content="TotemAstrology.com — Earthly Wisdom for your Journey" property="og:title"/>
+<meta content="Personalized astrology readings connecting ancient celestial wisdom with the questions you carry today." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="TotemAstrology.com" property="og:site_name"/>
+<meta content="https://totemastrology.com/" property="og:url"/>
+<link href="https://totemastrology.com/" rel="canonical"/>
+<title>TotemAstrology.com — Earthly Wisdom for your Journey</title>
+<link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/styles.css?v=20260716nav" rel="stylesheet"/>
+<style id="home-hero-styles">
+    #home-hero-copy {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin: 0 auto 2rem !important;
+      text-align: center !important;
+    }
+
+    .hero #home-hero-title,
+    #home-hero-title {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 0 1rem !important;
+      padding: 0 !important;
+      font-size: clamp(1.75rem, 5vw, 3.5rem) !important;
+      line-height: 1.15 !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+    }
+
+    .hero #home-hero-tagline,
+    #home-hero-tagline {
+      display: block !important;
+      width: 100% !important;
+      max-width: min(42rem, 96vw) !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      text-align: center !important;
+      font-size: clamp(1.0625rem, 2.2vw, 1.25rem) !important;
+      line-height: 1.55 !important;
+      color: var(--text-muted) !important;
+    }
+
+    .hero-tagline-line {
+      display: block !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+    }
+
+    .hero-tagline-star {
+      color: var(--gold) !important;
+      font-size: 0.85em !important;
+      opacity: 0.95 !important;
+      padding: 0 0.35em !important;
+    }
+
+    @media (max-width: 480px) {
+      #home-hero-tagline {
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem) !important;
+      }
+    }
+
+    .hero-yinyang {
+      opacity: 1 !important;
+      width: min(332px, 66.4vw) !important;
+      height: min(332px, 66.4vw) !important;
+      transform-origin: center center;
+      animation: hero-yinyang-spin 72s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes hero-yinyang-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-yinyang {
+        animation: none;
+      }
+    }
+
+    .hero-yinyang .yinyang-swirl-orange {
+      stroke: #FF8C22 !important;
+      fill: none !important;
+      stroke-linecap: round !important;
+    }
+
+    .hero-yinyang .yinyang-swirl-green {
+      stroke: #12A05F !important;
+      fill: none !important;
+      stroke-linecap: round !important;
+    }
+
+    .hero-yinyang .yinyang-ring-orange {
+      stroke: #FF8C22 !important;
+      fill: none !important;
+    }
+
+    .hero-yinyang .yinyang-ring-green {
+      stroke: #12A05F !important;
+      fill: none !important;
+    }
+
+    .hero-yinyang .yinyang-yang {
+      fill: #FF8C22 !important;
+    }
+
+    .hero-yinyang .yinyang-yin {
+      fill: #12A05F !important;
+      opacity: 1 !important;
+    }
+
+    .hero-yinyang .yinyang-dot-yang {
+      fill: #FFB366 !important;
+    }
+
+    .hero-yinyang .yinyang-dot-yin {
+      fill: #1AD47A !important;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero .home-zodiac-visual {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .home-learn-grid {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+    }
+
+    .home-learn-topic {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .home-learn-topic:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .home-learn-topic h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+      color: var(--gold-light);
+    }
+
+    .home-learn-topic p {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+      font-size: 0.9875rem;
+      line-height: 1.6;
+    }
+
+
+    .home-elements-visual {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .home-elements-visual .elements-cycle-figure {
+      margin: 0;
+      width: 100%;
+    }
+
+    .home-elements-visual .elements-cycle-figure svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .home-learn-overview {
+      text-align: center;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<!-- Homepage hero layout v5 — self-contained, no extra CSS file needed -->
+<a class="skip-link" data-i18n="skip" href="#main-content">Skip to content</a>
+<div class="page-wrap">
+<header class="site-header site-header--with-lang">
+<div class="container header-inner">
+<a class="logo" href="index.html">
+<svg aria-hidden="true" class="logo-icon" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M18 6 L18 30 M6 18 L30 18" opacity="0.5" stroke="currentColor" stroke-width="1"></path>
+<circle cx="18" cy="10" fill="currentColor" r="2"></circle>
+<circle cx="26" cy="18" fill="currentColor" opacity="0.7" r="1.5"></circle>
+<circle cx="12" cy="24" fill="currentColor" opacity="0.7" r="1.5"></circle>
+</svg>
+          TotemAstrology.com
+        </a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" data-i18n-aria="nav.toggle">
+<span></span><span></span><span></span>
+</button>
+<div class="header-actions">
+<nav aria-label="Main navigation" class="site-nav" id="site-nav">
+<ul>
+<li><a aria-current="page" data-i18n="nav.home" href="index.html">Home</a></li>
+<li><a data-i18n="nav.howItWorks" href="how-it-works.html">How It Works</a></li>
+<li><a data-i18n="nav.calculator" href="calculator.html">Totem Calculator</a></li>
+<li><a data-i18n="nav.connections" href="connections.html">Connections</a></li>
+<li><a data-i18n="nav.about" href="about.html">About</a></li>
+<li><a data-i18n="nav.services" href="services.html">Services</a></li>
+<li><a data-i18n="nav.faq" href="faq.html">FAQ</a></li>
+<li><a data-i18n="nav.contact" href="contact.php">Contact</a></li>
+</ul>
+</nav>
+<a class="user-profile-btn" data-i18n="nav.account" href="account.html">User Profile</a>
+</div>
+</div>
+<div aria-label="Language" class="lang-bar" id="site-lang-bar" role="navigation"></div>
+</header>
+<main id="main-content">
+<section class="hero stars-decoration">
+<div class="container">
+<div aria-hidden="true" class="hero-visual">
+<svg aria-hidden="true" class="totem-wheel hero-yinyang" fill="none" viewbox="0 0 200 200">
+<g>
+<path class="yinyang-swirl-orange" d="M100 100 C 138 58 178 72 186 112 C 192 148 168 178 128 186" stroke-width="2"></path>
+<path class="yinyang-swirl-green" d="M100 100 C 62 142 22 128 14 88 C 8 52 32 22 72 14" stroke-width="2"></path>
+<path class="yinyang-swirl-orange" d="M100 100 C 152 118 176 156 160 182 C 142 192 108 188 88 162" stroke-width="1.5"></path>
+<path class="yinyang-swirl-green" d="M100 100 C 48 82 24 44 40 18 C 58 8 92 12 112 38" stroke-width="1.5"></path>
+</g>
+<circle class="yinyang-ring-orange" cx="100" cy="100" r="92" stroke-width="1.5"></circle>
+<circle class="yinyang-ring-green" cx="100" cy="100" r="78" stroke-width="1.25"></circle>
+<path class="yinyang-yang" d="M100 22 A78 78 0 0 1 100 178 A39 39 0 0 0 100 100 A39 39 0 0 1 100 22 Z"></path>
+<path class="yinyang-yin" d="M100 178 A78 78 0 0 1 100 22 A39 39 0 0 0 100 100 A39 39 0 0 1 100 178 Z"></path>
+<circle class="yinyang-dot-yin" cx="100" cy="61" r="11"></circle>
+<circle class="yinyang-dot-yang" cx="100" cy="139" r="11"></circle>
+</svg>
+</div>
+<span class="hero-badge">TotemAstrology.com</span>
+<div id="home-hero-copy">
+<h1 data-i18n="hero.title" data-i18n-html="true" id="home-hero-title" style="width:100%;max-width:100%;text-align:center;margin:0 0 1rem;font-size:clamp(1.75rem,5vw,3.5rem);line-height:1.15;">Meet the 4 Animal Guides<br/>You Were Born With</h1>
+<p id="home-hero-tagline" style="display:block;width:100%;max-width:min(42rem,96vw);margin:0 auto;text-align:center;">
+<span class="hero-tagline-line"><span aria-hidden="true" class="hero-tagline-star">✦</span> <span data-i18n="hero.tag1">Discover the totemic symbols of your inner talents</span> <span aria-hidden="true" class="hero-tagline-star">✦</span></span>
+<span class="hero-tagline-line"><span aria-hidden="true" class="hero-tagline-star">✦</span> <span data-i18n="hero.tag2">Resolve your inner battles with a brand new language</span> <span aria-hidden="true" class="hero-tagline-star">✦</span></span>
+<span class="hero-tagline-line"><span aria-hidden="true" class="hero-tagline-star">✦</span> <span data-i18n="hero.tag3">Understand the motivations of people all around you</span> <span aria-hidden="true" class="hero-tagline-star">✦</span></span>
+<span class="hero-tagline-line"><span aria-hidden="true" class="hero-tagline-star">✦</span> <span data-i18n="hero.tag4">Connect with others to make the most of your Destiny</span> <span aria-hidden="true" class="hero-tagline-star">✦</span></span>
+</p>
+</div>
+</div>
+<div class="container home-zodiac-visual">
+<div class="about-photo">
+<svg aria-labelledby="homeTotemZodiacTitle homeTotemZodiacDesc" fill="none" role="img" viewbox="-84 -35 568 613" xmlns="http://www.w3.org/2000/svg">
+<title id="homeTotemZodiacTitle">Totem Astrology Zodiac Wheel</title>
+<desc id="homeTotemZodiacDesc">Twelve totem animals on a clock-face wheel with four values triangles.</desc>
+<defs>
+<radialgradient cx="50%" cy="42%" id="homeZodiacBgGlow" r="65%">
+<stop offset="0%" stop-color="#1a2236"></stop>
+<stop offset="55%" stop-color="#121829"></stop>
+<stop offset="100%" stop-color="#0a0e1a"></stop>
+</radialgradient>
+<radialgradient cx="50%" cy="50%" id="homeZodiacCenterGlow" r="50%">
+<stop offset="0%" stop-color="#c9a962" stop-opacity="0.18"></stop>
+<stop offset="100%" stop-color="#c9a962" stop-opacity="0"></stop>
+</radialgradient>
+<lineargradient id="homeZodiacGoldStroke" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#e8d5a3"></stop>
+<stop offset="100%" stop-color="#8a7344"></stop>
+</lineargradient>
+<clippath id="homeZodiacMedallionClip">
+<circle cx="0" cy="0" r="24"></circle>
+</clippath>
+</defs>
+<rect fill="url(#homeZodiacBgGlow)" height="613" width="568" x="-84" y="-35"></rect>
+<rect fill="url(#homeZodiacCenterGlow)" height="613" width="568" x="-84" y="-35"></rect>
+<g fill="#e8d5a3" opacity="0.5">
+<circle cx="42" cy="58" r="1.2"></circle>
+<circle cx="358" cy="74" r="1"></circle>
+<circle cx="320" cy="136" r="1.1"></circle>
+<circle cx="52" cy="392" r="1"></circle>
+<circle cx="348" cy="410" r="0.9"></circle>
+<circle cx="200" cy="36" r="1.3"></circle>
+</g>
+<circle cx="200" cy="248" r="168" stroke="#c9a962" stroke-opacity="0.22" stroke-width="1"></circle>
+<circle cx="200" cy="248" r="148" stroke="#c9a962" stroke-dasharray="4 6" stroke-opacity="0.12" stroke-width="0.75"></circle>
+<circle cx="200" cy="248" r="218" stroke="#c9a962" stroke-dasharray="3 5" stroke-opacity="0.16" stroke-width="0.75"></circle>
+<circle cx="200" cy="248" r="246" stroke="#c9a962" stroke-dasharray="3 5" stroke-opacity="0.14" stroke-width="0.75"></circle>
+<g fill="#c9a962" fill-opacity="0.03" stroke="#c9a962" stroke-opacity="0.28" stroke-width="1">
+<polygon points="278,112.9 278,383.1 44,248"></polygon>
+<polygon points="335.1,170 200,404 64.9,170"></polygon>
+<polygon points="356,248 122,383.1 122,112.9"></polygon>
+<polygon points="335.1,326 64.9,326 200,92"></polygon>
+</g>
+<circle cx="200" cy="248" r="34" stroke="#c9a962" stroke-opacity="0.35" stroke-width="1"></circle>
+<circle cx="200" cy="248" fill="#c9a962" fill-opacity="0.9" r="7"></circle>
+<path d="M200 214 L200 282 M166 248 L234 248" stroke="#e8d5a3" stroke-opacity="0.4" stroke-width="0.75"></path>
+<!-- XII Bear -->
+<g transform="translate(200 92)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/bear.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<g aria-hidden="true" transform="translate(0 -24)">
+<path d="M-9 5 L-7-3 L-3 1 L0-4 L3 1 L7-3 L9 5 Z" fill="#c9a962" stroke="#8a7344" stroke-width="0.6"></path>
+<rect fill="#e8d5a3" height="3.5" rx="1" stroke="#8a7344" stroke-width="0.5" width="18" x="-9" y="5"></rect>
+<circle cx="-5" cy="0" fill="#f5e6b8" r="1"></circle>
+<circle cx="0" cy="-2" fill="#f5e6b8" r="1"></circle>
+<circle cx="5" cy="0" fill="#f5e6b8" r="1"></circle>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">BEAR</text>
+</g>
+<!-- I Squirrel -->
+<g transform="translate(278 112.9)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/squirrel.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing="0.04em" text-anchor="middle" y="38">SQUIRREL</text>
+</g>
+<!-- II Buffalo -->
+<g transform="translate(335.1 170)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/buffalo.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing="0.04em" text-anchor="middle" y="38">BUFFALO</text>
+</g>
+<!-- III Tiger -->
+<g transform="translate(356 248)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/tiger.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">TIGER</text>
+</g>
+<!-- IV Cat -->
+<g transform="translate(335.1 326)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/cat.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">CAT</text>
+</g>
+<!-- V Dragon -->
+<g transform="translate(278 383.1)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/dragon.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">DRAGON</text>
+</g>
+<!-- VI Snake -->
+<g transform="translate(200 404)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/snake.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">SNAKE</text>
+</g>
+<!-- VII Horse -->
+<g transform="translate(122 383.1)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/horse.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">HORSE</text>
+</g>
+<!-- VIII Deer -->
+<g transform="translate(64.9 326)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/deer.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">DEER</text>
+</g>
+<!-- IX Monkey -->
+<g transform="translate(44 248)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/monkey.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing="0.04em" text-anchor="middle" y="38">MONKEY</text>
+</g>
+<!-- X Phoenix -->
+<g transform="translate(64.9 170)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/phoenix.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="6.5" letter-spacing="0.04em" text-anchor="middle" y="38">PHOENIX</text>
+</g>
+<!-- XI Wolf -->
+<g transform="translate(122 112.9)">
+<circle fill="#1a2236" r="28" stroke="url(#homeZodiacGoldStroke)" stroke-width="1.3"></circle>
+<g clip-path="url(#homeZodiacMedallionClip)">
+<image height="52" href="assets/images/totems/wolf.png" preserveaspectratio="xMidYMid slice" width="52" x="-26" y="-26"/>
+</g>
+<text fill="#9aa3b8" font-family="system-ui,sans-serif" font-size="7" letter-spacing="0.06em" text-anchor="middle" y="38">WOLF</text>
+</g>
+<!-- Values ring labels (outside animal circle) -->
+<g fill="#e8d5a3" font-family="Georgia, serif" font-size="8" letter-spacing="0.12em" opacity="0.92" text-anchor="middle">
+<text x="200.0" y="33.0">HARMONY</text>
+<text x="309.0" y="62.2">POWER</text>
+<text x="388.8" y="142.0">SECURITY</text>
+<text x="418.0" y="251.0">IDEALISM</text>
+<text x="388.8" y="360.0">HARMONY</text>
+<text x="309.0" y="439.8">POWER</text>
+<text x="200.0" y="469.0">SECURITY</text>
+<text x="91.0" y="439.8">IDEALISM</text>
+<text x="11.2" y="360.0">HARMONY</text>
+<text x="-18.0" y="251.0">POWER</text>
+<text x="11.2" y="142.0">SECURITY</text>
+<text x="91.0" y="62.2">IDEALISM</text>
+</g>
+<!-- Roles ring labels (outside values circle) -->
+<g fill="#e8d5a3" font-family="Georgia, serif" font-size="8" letter-spacing="0.12em" opacity="0.92" text-anchor="middle">
+<text x="200.0" y="5.0">ROYAL</text>
+<text x="323.0" y="38.0">SEEKER</text>
+<text x="413.0" y="128.0">SEEKER</text>
+<text x="454.0" y="232.0">ROYAL</text>
+<text x="413.0" y="374.0">MAGE</text>
+<text x="323.0" y="464.0">ROYAL</text>
+<text x="200.0" y="497.0">MAGE</text>
+<text x="77.0" y="464.0">SEEKER</text>
+<text x="-13.0" y="374.0">SEEKER</text>
+<text x="-54.0" y="232.0">MAGE</text>
+<text x="-13.0" y="128.0">ROYAL</text>
+<text x="77.0" y="38.0">MAGE</text>
+</g>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="15" letter-spacing="0.12em" opacity="0.85" text-anchor="middle" x="200" y="522">THE TWELVE TOTEMS</text>
+<text fill="#9aa3b8" font-family="system-ui, sans-serif" font-size="11" letter-spacing="0.06em" text-anchor="middle" x="200" y="538">Spirit · Mind · Heart · Body</text>
+</svg>
+</div>
+</div>
+<div class="container home-elements-visual">
+<div class="about-photo">
+<figure class="elements-cycle-figure">
+<svg aria-labelledby="homeFiveElementsTitle homeFiveElementsDesc" class="elements-cycle-diagram" fill="none" role="img" viewbox="0 0 420 460" xmlns="http://www.w3.org/2000/svg">
+<title id="homeFiveElementsTitle">Five Elements generating and controlling cycles</title>
+<desc id="homeFiveElementsDesc">Water, Wood, Fire, Earth, and Metal arranged in a circle. Gold arrows show the generating cycle around the ring. Purple arrows form an inner pentagram showing the controlling cycle.</desc>
+<defs>
+<radialgradient cx="50%" cy="44%" id="feBg" r="62%">
+<stop offset="0%" stop-color="#1a2236"></stop>
+<stop offset="55%" stop-color="#121829"></stop>
+<stop offset="100%" stop-color="#0a0e1a"></stop>
+</radialgradient>
+<radialgradient cx="50%" cy="44%" id="feGlow" r="45%">
+<stop offset="0%" stop-color="#c9a962" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#c9a962" stop-opacity="0"></stop>
+</radialgradient>
+<lineargradient id="feGold" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#e8d5a3"></stop>
+<stop offset="100%" stop-color="#8a7344"></stop>
+</lineargradient>
+<clippath clippathunits="userSpaceOnUse" id="feWaterWaveClip">
+<circle cx="0" cy="0" r="24"></circle>
+</clippath>
+<clippath clippathunits="userSpaceOnUse" id="feEarthClip">
+<circle cx="0" cy="0" r="32"></circle>
+</clippath>
+<clippath clippathunits="userSpaceOnUse" id="feMetalClip">
+<circle cx="0" cy="0" r="32"></circle>
+</clippath>
+<marker id="feGenArrow" markerheight="8" markerwidth="8" orient="auto" refx="6" refy="4">
+<path d="M0 0 L8 4 L0 8 Z" fill="#e8d5a3"></path>
+</marker>
+<marker id="feCtrlArrow" markerheight="7" markerwidth="7" orient="auto" refx="5.5" refy="3.5">
+<path d="M0 0 L7 3.5 L0 7 Z" fill="#9a8fc4"></path>
+</marker>
+</defs>
+<rect fill="url(#feBg)" height="460" width="420"></rect>
+<rect fill="url(#feGlow)" height="460" width="420"></rect>
+<g fill="#e8d5a3" opacity="0.35">
+<circle cx="36" cy="42" r="1"></circle>
+<circle cx="382" cy="58" r="1.1"></circle>
+<circle cx="48" cy="360" r="0.9"></circle>
+<circle cx="368" cy="372" r="1"></circle>
+</g>
+<g fill="none" marker-end="url(#feCtrlArrow)" stroke="#6b5b95" stroke-opacity="0.72" stroke-width="1.35">
+<path d="M210 82 L283.4 311.1"></path>
+<path d="M283.4 311.1 L91.1 181.4"></path>
+<path d="M91.1 181.4 L328.9 181.4"></path>
+<path d="M328.9 181.4 L136.6 311.1"></path>
+<path d="M136.6 311.1 L210 82"></path>
+</g>
+<g fill="none" marker-end="url(#feGenArrow)" opacity="0.92" stroke="url(#feGold)" stroke-width="1.5">
+<path d="M210 82 A125 125 0 0 1 328.9 181.4"></path>
+<path d="M328.9 181.4 A125 125 0 0 1 283.4 311.1"></path>
+<path d="M283.4 311.1 A125 125 0 0 1 136.6 311.1"></path>
+<path d="M136.6 311.1 A125 125 0 0 1 91.1 181.4"></path>
+<path d="M91.1 181.4 A125 125 0 0 1 210 82"></path>
+</g>
+<g transform="translate(210 216.75)">
+<circle fill="#c9a962" fill-opacity="0.85" r="4"></circle>
+<path d="M0 -35.4 L0 44.8 M-47.3 0 L47.3 0" stroke="#e8d5a3" stroke-opacity="0.25" stroke-width="0.75"></path>
+</g>
+<g transform="translate(210 82)">
+<circle fill="#121829" r="34" stroke="#4a90c4" stroke-width="1.5"></circle>
+<circle fill="#4a90c4" fill-opacity="0.12" r="34"></circle>
+<!-- Yang wave (below cloud) -->
+<g clip-path="url(#feWaterWaveClip)">
+<image height="28" href="data:image/png;base64,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" preserveaspectratio="xMidYMid meet" width="28" x="-14" y="3"/>
+</g>
+<!-- Yin rain cloud — poofy bulbous -->
+<ellipse cx="0" cy="-16" fill="#6aace0" fill-opacity="0.92" rx="10" ry="6"></ellipse>
+<ellipse cx="-9" cy="-13" fill="#7eb8e8" fill-opacity="0.9" rx="6.5" ry="5"></ellipse>
+<ellipse cx="9" cy="-13" fill="#7eb8e8" fill-opacity="0.9" rx="7" ry="5.5"></ellipse>
+<ellipse cx="-4" cy="-19" fill="#8ec4ee" rx="5.5" ry="4"></ellipse>
+<ellipse cx="5" cy="-18" fill="#8ec4ee" rx="5" ry="4"></ellipse>
+<ellipse cx="0" cy="-20" fill="#a8d4f0" fill-opacity="0.8" rx="4" ry="3"></ellipse>
+<ellipse cx="-7" cy="-17" fill="#7eb8e8" fill-opacity="0.85" rx="4" ry="3.2"></ellipse>
+<ellipse cx="7" cy="-16" fill="#a8d4f0" fill-opacity="0.85" rx="4.5" ry="3.5"></ellipse>
+<!-- Rain droplets falling onto wave -->
+<g fill="#a8d4f0" fill-opacity="0.95">
+<path d="M-6.5 -6 C-5.9 -4.6 -5.9 -3.3 -6.5 -1.9 C-7.1 -3.3 -7.1 -4.6 -6.5 -6 Z"></path>
+<path d="M-6.5 -1.2 C-5.9 0.2 -5.9 1.5 -6.5 2.9 C-7.1 1.5 -7.1 0.2 -6.5 -1.2 Z"></path>
+<path d="M-1.5 -7 C-0.9 -5.6 -0.9 -4.3 -1.5 -2.9 C-2.1 -4.3 -2.1 -5.6 -1.5 -7 Z"></path>
+<path d="M-1.5 -2.2 C-0.9 -0.8 -0.9 0.5 -1.5 1.9 C-2.1 0.5 -2.1 -0.8 -1.5 -2.2 Z"></path>
+<path d="M3.5 -6 C4.1 -4.6 4.1 -3.3 3.5 -1.9 C2.9 -3.3 2.9 -4.6 3.5 -6 Z"></path>
+<path d="M3.5 -1.2 C4.1 0.2 4.1 1.5 3.5 2.9 C2.9 1.5 2.9 0.2 3.5 -1.2 Z"></path>
+<path d="M-3.5 -5 C-2.9 -3.6 -2.9 -2.3 -3.5 -0.9 C-4.1 -2.3 -4.1 -3.6 -3.5 -5 Z"></path>
+<path d="M-3.5 -0.2 C-2.9 1.2 -2.9 2.5 -3.5 3.9 C-4.1 2.5 -4.1 1.2 -3.5 -0.2 Z"></path>
+<path d="M6.5 -5.5 C7.1 -4.1 7.1 -2.8 6.5 -1.4 C5.9 -2.8 5.9 -4.1 6.5 -5.5 Z"></path>
+<path d="M6.5 -0.7 C7.1 0.7 7.1 2 6.5 3.4 C5.9 2 5.9 0.7 6.5 -0.7 Z"></path>
+<path d="M-8 -4.5 C-7.4 -3.1 -7.4 -1.8 -8 -0.4 C-8.6 -1.8 -8.6 -3.1 -8 -4.5 Z"></path>
+<path d="M8 -4 C8.6 -2.6 8.6 -1.3 8 0.1 C7.4 -1.3 7.4 -2.6 8 -4 Z"></path>
+</g>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em" text-anchor="middle" y="48">WATER</text>
+</g>
+<g transform="translate(328.9 181.4)">
+<circle fill="#121829" r="34" stroke="#5a9a5a" stroke-width="1.5"></circle>
+<circle fill="#5a9a5a" fill-opacity="0.12" r="34"></circle>
+<path d="M-6 16 L6 16 L3.5 18 L-3.5 18 Z" fill="#5a3a1e"></path>
+<!-- vine segments behind trunk (left edge, darker) -->
+<path d="M-1 15 Q-5 13 -4 11" fill="none" opacity="0.9" stroke="#4a7a3a" stroke-linecap="round" stroke-width="1.55"></path>
+<path d="M-1 11 Q-5 9 -4 7" fill="none" opacity="0.9" stroke="#4a7a3a" stroke-linecap="round" stroke-width="1.55"></path>
+<path d="M-1 7 Q-5 5 -4 4" fill="none" opacity="0.85" stroke="#4a7a3a" stroke-linecap="round" stroke-width="1.55"></path>
+<rect fill="#6b4423" height="14" rx="1.5" width="7" x="-3.5" y="3"></rect>
+<path d="M-3.5 4 L-3.5 16" opacity="0.55" stroke="#5a3a1e" stroke-width="1.1"></path>
+<path d="M0 3 L-10 0" stroke="#6b4423" stroke-linecap="round" stroke-width="2"></path>
+<path d="M0 3 L10 0" stroke="#6b4423" stroke-linecap="round" stroke-width="2"></path>
+<!-- vine crossing front of trunk (diagonal wraps) -->
+<path d="M-3 16 L4 10" fill="none" stroke="#8edc8e" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M-3 10 L4 5" fill="none" stroke="#8edc8e" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M-3 5 L4 0" fill="none" stroke="#8edc8e" stroke-linecap="round" stroke-width="1.7"></path>
+<ellipse cx="5" cy="9" fill="#7ec87e" rx="2" ry="1.2" transform="rotate(-28 5 9)"></ellipse>
+<ellipse cx="5" cy="4" fill="#8edc8e" rx="1.8" ry="1.1" transform="rotate(-18 5 4)"></ellipse>
+<ellipse cx="4.5" cy="-1" fill="#7ec87e" rx="1.6" ry="1" transform="rotate(-12 4.5 -1)"></ellipse>
+<ellipse cx="0" cy="-8" fill="#5a9a5a" rx="13" ry="9"></ellipse>
+<ellipse cx="-7" cy="-9" fill="#7ec87e" rx="7" ry="6"></ellipse>
+<ellipse cx="7" cy="-9" fill="#7ec87e" rx="7" ry="6"></ellipse>
+<ellipse cx="0" cy="-11" fill="#8edc8e" rx="9" ry="7"></ellipse>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em" text-anchor="middle" y="48">WOOD</text>
+</g>
+<g transform="translate(283.4 311.1)">
+<circle fill="#121829" r="34" stroke="#c45c3e" stroke-width="1.5"></circle>
+<circle fill="#c45c3e" fill-opacity="0.12" r="34"></circle>
+<circle cy="1" fill="#ff6b2b" fill-opacity="0.6" r="16"></circle>
+<circle cy="1" fill="#ff8c22" fill-opacity="0.45" r="12"></circle>
+<g stroke="#ff5c1a" stroke-linecap="round" stroke-opacity="0.95" stroke-width="2">
+<g transform="rotate(0 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(45 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(90 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(135 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(180 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(225 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(270 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+<g transform="rotate(315 0 1)"><line x1="0" x2="0" y1="-14" y2="-20"></line></g>
+</g>
+<g fill="#ff6b2b" fill-opacity="0.95">
+<g transform="rotate(0 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(45 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(90 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(135 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(180 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(225 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(270 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+<g transform="rotate(315 0 1)"><path d="M0 -22 L2.2 -18 L-2.2 -18 Z"></path></g>
+</g>
+<path d="M0 12 C-4.5 12 -5.5 7 -4.5 3 C-3.5 -1 -1.5 -8 -0.5 -10.5 C0.5 -8 2.5 -1 3.5 3 C4.5 7 3.5 12 0 12 Z" fill="#e83a1a"></path>
+<path d="M-1.5 -10.5 L0 -14 L1.5 -10.5 Z" fill="#c42d0f"></path>
+<path d="M0 9.5 C-2.2 9.5 -2.8 5.5 -1.8 2.5 C-0.8 0 0 -4 0 -4 C0 -4 0.8 0 1.8 2.5 C2.8 5.5 2.2 9.5 0 9.5 Z" fill="#ff7a2f"></path>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em" text-anchor="middle" y="48">FIRE</text>
+</g>
+<g transform="translate(136.6 311.1)">
+<circle fill="#121829" r="34" stroke="#a89060" stroke-width="1.5"></circle>
+<circle fill="#a89060" fill-opacity="0.12" r="34"></circle>
+<!-- Yin rolling hills + Yang peaks — sized to fit bubble -->
+<path d="M-20 14 Q-10 9 0 12 Q10 9 20 14 L20 16 L-20 16 Z" fill="#8a7344" fill-opacity="0.55"></path>
+<path d="M-27 14 L-13.5 -11 L0 14 Z" fill="url(#feGold)" stroke="#c9a962" stroke-linejoin="round" stroke-width="0.9"></path>
+<path d="M0 14 L13.5 -11 L27 14 Z" fill="url(#feGold)" stroke="#c9a962" stroke-linejoin="round" stroke-width="0.9"></path>
+<path d="M-13.5 -11 L-11.5 -6 L-15.5 -6 Z" fill="#e8d5a3" fill-opacity="0.65"></path>
+<path d="M13.5 -11 L15.5 -6 L11.5 -6 Z" fill="#e8d5a3" fill-opacity="0.65"></path>
+<path d="M0 14 L-2.5 9 L2.5 9 Z" fill="#c9a87a" fill-opacity="0.45"></path>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em" text-anchor="middle" y="48">EARTH</text>
+</g>
+<g transform="translate(91.1 181.4)">
+<circle fill="#121829" r="34" stroke="#b8c0cc" stroke-width="1.5"></circle>
+<circle fill="#b8c0cc" fill-opacity="0.1" r="34"></circle>
+<!-- Sword — uploaded bold reference, pre-flipped: hilt top-left, tip bottom-right -->
+<g clip-path="url(#feMetalClip)">
+<image height="36" href="data:image/png;base64,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" preserveaspectratio="xMidYMid meet" style="mix-blend-mode:screen" width="36" x="-18" y="-18"/>
+</g>
+<path d="M0 -16 L13 -1 L-13 -1 Z" fill="#d8e0ea"></path>
+<path d="M0 -16 L-6.5 -1 L0 -1 Z" fill="#b8c0cc"></path>
+<path d="M0 -16 L6.5 -1 L0 -1 Z" fill="#eef2f7"></path>
+<path d="M-13 -1 L13 -1 L0 16 Z" fill="#b8c0cc"></path>
+<path d="M-13 -1 L0 16 L0 -1 Z" fill="#9aa8b8"></path>
+<path d="M13 -1 L0 16 L0 -1 Z" fill="#eef2f7"></path>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em" text-anchor="middle" y="48">METAL</text>
+</g>
+<text fill="#e8d5a3" font-family="Georgia, serif" font-size="15" letter-spacing="0.12em" opacity="0.85" text-anchor="middle" x="210" y="418">The Five Elements</text>
+<text fill="#9aa3b8" font-family="system-ui, sans-serif" font-size="11" letter-spacing="0.06em" text-anchor="middle" x="210" y="434">Water · Wood · Fire · Earth · Metal</text>
+</svg>
+</figure>
+</div>
+</div>
+<div class="container home-promo-banners">
+<div class="home-promo-grid">
+<article class="home-promo-card">
+<svg aria-hidden="true" class="home-promo-card__icon" fill="none" viewbox="0 0 48 48">
+<circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="24" cy="24" opacity="0.55" r="9" stroke="currentColor" stroke-width="1.25"></circle>
+<path d="M24 7 L24 41 M7 24 L41 24" opacity="0.35" stroke="currentColor" stroke-width="1"></path>
+<polygon fill="rgba(201,169,98,0.12)" points="24,15 31,28 17,28" stroke="currentColor" stroke-width="1.5"></polygon>
+</svg>
+<h3 class="home-promo-card__title" data-i18n="promo.how.title">How It Works</h3>
+<p class="home-promo-card__copy" data-i18n="promo.how.copy">Four totem guides, Five Elements, Yin &amp; Yang, Values Triangles, Sacred Roles, and Nepal Time — one map for understanding your totem pole.</p>
+<a class="btn btn-outline home-promo-card__cta" data-i18n="promo.how.cta" href="how-it-works.html">Explore the System</a>
+</article>
+<article class="home-promo-card home-promo-card--featured">
+<svg aria-hidden="true" class="home-promo-card__icon" fill="none" viewbox="0 0 48 48">
+<rect height="13" rx="2.5" stroke="currentColor" stroke-width="1.5" width="13" x="9" y="9"></rect>
+<rect height="13" rx="2.5" stroke="currentColor" stroke-width="1.5" width="13" x="26" y="9"></rect>
+<rect height="13" rx="2.5" stroke="currentColor" stroke-width="1.5" width="13" x="9" y="26"></rect>
+<rect height="13" rx="2.5" stroke="currentColor" stroke-width="1.5" width="13" x="26" y="26"></rect>
+<circle cx="15.5" cy="15.5" fill="currentColor" opacity="0.7" r="2"></circle>
+<circle cx="32.5" cy="15.5" fill="currentColor" opacity="0.7" r="2"></circle>
+<circle cx="15.5" cy="32.5" fill="currentColor" opacity="0.7" r="2"></circle>
+<circle cx="32.5" cy="32.5" fill="currentColor" opacity="0.7" r="2"></circle>
+</svg>
+<h3 class="home-promo-card__title" data-i18n="promo.calc.title">Calculator</h3>
+<p class="home-promo-card__copy" data-i18n="promo.calc.copy">Enter your birth date, time, and city to reveal your four totem guides: Spirit, Mind, Heart, and Body.</p>
+<a class="btn btn-primary home-promo-card__cta" data-i18n="promo.calc.cta" href="calculator.html">Reveal Your Totems</a>
+</article>
+<article class="home-promo-card">
+<svg aria-hidden="true" class="home-promo-card__icon" fill="none" viewbox="0 0 48 48">
+<circle cx="16" cy="20" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="32" cy="20" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="24" cy="34" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M20.5 23.5 L21.5 29.5 M27.5 23.5 L26.5 29.5 M22 20 L26 20" stroke="currentColor" stroke-linecap="round" stroke-width="1.25"></path>
+</svg>
+<h3 class="home-promo-card__title" data-i18n="promo.conn.title">Totem Connections</h3>
+<p class="home-promo-card__copy" data-i18n="promo.conn.copy">Browse other people’s totems and discover Rainbows, Shadows, Values Trines, Mirror Opposites, and Same As Me.</p>
+<a class="btn btn-outline home-promo-card__cta" data-i18n="promo.conn.cta" href="connections.html">Find Your People</a>
+</article>
+</div>
+</div>
+</section>
+<section class="section section--learn" id="why-totem-astrology">
+<div class="container learn-prose">
+<div class="section-header">
+<span class="section-label" data-i18n="home.why-totem-astrology.section-label.our-hope">Our Hope</span>
+<h2 data-i18n="home.why-totem-astrology.h2.a-tool-for-understanding-not-an">A Tool for Understanding — Not an Excuse For Bad Behavior</h2>
+<p data-i18n="home.why-totem-astrology.p.at-the-heart-of-totem-astrology">At the heart of Totem Astrology is hope: hope for a clearer understanding of yourself, hope for better understanding between partners and family members, and hope that there are people out there who are compatible with you just the way you are.</p>
+</div>
+<p data-i18n="home.why-totem-astrology.p.the-four-animal-guides-give-us">The four animal guides give us a shared language — something abstract we can point to when what is going on inside feels hard to name. When a Monkey is trying to get a Buffalo to climb a tree, we can talk about the clash without everything feeling so personal. The animals symbolize inner modes we all operate from, and they unite us in a vocabulary for compassion.</p>
+<p data-i18n="home.why-totem-astrology.p.this-is-a-tool-for-understanding" data-i18n-html="true">
+            This is a tool for understanding each other and offering grace — grace born from comprehending our differences and appreciating the different ways people move through the world. It is <em>not</em> an excuse for bad behavior, and it is not a reason to accept other people’s bad behavior when harm is being done. Totem Astrology is meant to illuminate, not to imprison: we learn where we differ so we can show up for ourselves and for each other with more patience, not less accountability.
+          </p>
+<div class="learn-callout">
+<p class="learn-callout__closing" data-i18n="home.why-totem-astrology.p.take-what-resonates-set-aside-what">Take what resonates, set aside what doesn’t — and never use these guides to justify cruelty, neglect, or staying where you are not safe. Hope and boundaries can live in the same room.</p>
+</div>
+</div>
+</section>
+<section class="section section--learn" id="how-totem-astrology-works">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="home.how-totem-astrology-works.section-label.the-system">The System</span>
+<h2 data-i18n="home.how-totem-astrology-works.h2.how-totem-astrology-works">How Totem Astrology Works</h2>
+<p data-i18n="home.how-totem-astrology-works.p.the-language-behind-your-four-guides">The language behind your four guides — explore each layer, then see it all together on one page.</p>
+</div>
+<div class="home-learn-grid">
+<article class="home-learn-topic">
+<h3 data-i18n="home.how-totem-astrology-works.h3.your-four-totem-guides">Your Four Totem Guides</h3>
+<p data-i18n="home.how-totem-astrology-works.p.spirit-mind-heart-and-body-four">Spirit, Mind, Heart, and Body — four animal allies from your birth year, month, day, and hour.</p>
+<a class="btn btn-outline" data-i18n="home.how-totem-astrology-works.btn.read-more" href="four-totem-guides.html">Read more</a>
+</article>
+<article class="home-learn-topic">
+<h3 data-i18n="home.how-totem-astrology-works.h3.the-five-elements">The Five Elements</h3>
+<p data-i18n="home.how-totem-astrology-works.p.water-wood-fire-earth-and-metal">Water, Wood, Fire, Earth, and Metal — each section of your totem pole pairs an animal with one of these Five Elements, adding texture to your Spirit, Mind, Heart, and Body guides.</p>
+<a class="btn btn-outline" data-i18n="home.how-totem-astrology-works.btn.read-more.2" href="five-elements.html">Read more</a>
+</article>
+<article class="home-learn-topic">
+<h3 data-i18n="home.how-totem-astrology-works.h3.yin-yang">Yin &amp; Yang</h3>
+<p data-i18n="home.how-totem-astrology-works.p.each-totem-animal-carries-fixed-polarity">Each totem animal carries fixed polarity from the start — Squirrel always Yang, Buffalo always Yin, Tiger always Yang, Cat always Yin, and so on.</p>
+<a class="btn btn-outline" data-i18n="home.how-totem-astrology-works.btn.read-more.3" href="yin-yang.html">Read more</a>
+</article>
+<article class="home-learn-topic">
+<h3 data-i18n="home.how-totem-astrology-works.h3.values-triangles">Values Triangles</h3>
+<p data-i18n="home.how-totem-astrology-works.p.four-core-values-organize-the-twelve">Four core values organize the twelve animals into triangles that describe what each guide cares about most.</p>
+<a class="btn btn-outline" data-i18n="home.how-totem-astrology-works.btn.read-more.4" href="totem-astrology.html">Read more</a>
+</article>
+<article class="home-learn-topic">
+<h3 data-i18n="home.how-totem-astrology-works.h3.sacred-roles">Sacred Roles</h3>
+<p data-i18n="home.how-totem-astrology-works.p.within-each-values-triangle-the-three">Within each Values Triangle, the three animals play one of three Sacred Roles: the Seeker, the Mage, or the Royal — three distinct ways of embodying that triangle’s core value.</p>
+<a class="btn btn-outline" data-i18n="home.how-totem-astrology-works.btn.read-more.5" href="sacred-roles.html">Read more</a>
+</article>
+<article class="home-learn-topic">
+<h3 data-i18n="home.how-totem-astrology-works.h3.nepal-time">Nepal Time</h3>
+<p data-i18n="home.how-totem-astrology-works.p.a-simple-timezone-shift-to-nepal">A simple timezone shift to Nepal Time (NPT) before calculation — an intuitive anchor for reading day and hour pillars.</p>
+<a class="btn btn-outline" data-i18n="home.how-totem-astrology-works.btn.read-more.6" href="nepal-time.html">Read more</a>
+</article>
+</div>
+<p class="home-learn-overview"><a class="btn btn-primary" data-i18n="home.how-totem-astrology-works.btn.how-it-works-full-overview" href="how-it-works.html">How It Works — full overview</a></p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="home.section-label.what-we-offer">What We Offer</span>
+<h2 data-i18n="home.h2.a-revolution-in-how-we-understand">A Revolution In How We Understand Our Relationships with Others and with the Different Conflicting Parts of Ourselves</h2>
+<p data-i18n="home.p.untangle-the-complexities-of-life-in">Untangle the complexities of life in this modern, digital world by reconnecting with the ancient wisdom of the four unique animal totems you were born with</p>
+</div>
+<div class="card-grid card-grid--centered">
+<article class="card card--featured-home">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="24" cy="16" fill="currentColor" r="3"></circle>
+</svg>
+<span class="section-label" data-i18n="page.services.featured.kicker">Start here</span>
+<h3 data-i18n="home.h3.personal-reading">Personal Reading</h3>
+<p class="card-price card-price--compact" data-i18n="page.services.price" data-i18n-html="true">$200 <span>· 75 minutes</span></p>
+<p data-i18n="home.p.meet-your-four-totem-guides-and">Meet your four totem guides and discover the inner talents you were born to share.</p>
+<a data-i18n="home.link.learn-more" href="services.html#personal-reading">Learn more →</a>
+</article>
+<article class="card">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<circle cx="18" cy="24" r="10" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="30" cy="24" r="10" stroke="currentColor" stroke-width="1.5"></circle>
+</svg>
+<h3 data-i18n="home.h3.relationship-guide">Relationship Guide</h3>
+<p data-i18n="home.p.understand-the-totem-dynamics-between-yo">Understand the totem dynamics between you and a partner — attraction, friction, and shared purpose.</p>
+<a data-i18n="home.link.learn-more.2" href="services.html#relationship-guide">Learn more →</a>
+</article>
+<article class="card">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<circle cx="16" cy="20" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="32" cy="20" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="24" cy="34" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+</svg>
+<h3 data-i18n="home.h3.family-dynamics">Family Dynamics</h3>
+<p data-i18n="home.p.map-totem-patterns-across-your-family">Map totem patterns across your family to heal old cycles and strengthen connection.</p>
+<a data-i18n="home.link.learn-more.3" href="services.html#family-dynamics">Learn more →</a>
+</article>
+<article class="card">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<path d="M8 36 L8 18 L24 10 L40 18 L40 36" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<path d="M18 36 L18 26 L30 26 L30 36" stroke="currentColor" stroke-width="1.5"></path>
+</svg>
+<h3 data-i18n="home.h3.business-goals">Business Goals</h3>
+<p data-i18n="home.p.align-your-work-and-ambitions-with">Align your work and ambitions with your totem strengths and the timing that supports them.</p>
+<a data-i18n="home.link.learn-more.4" href="services.html#business-goals">Learn more →</a>
+</article>
+<article class="card">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<circle cx="14" cy="24" r="5" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="34" cy="24" r="5" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M19 24 L29 24" stroke="currentColor" stroke-width="1.5"></path>
+<circle cx="24" cy="14" r="4" stroke="currentColor" stroke-width="1.5"></circle>
+</svg>
+<h3 data-i18n="home.h3.new-connections">New Connections</h3>
+<p data-i18n="home.p.find-the-people-and-opportunities-that">Find the people and opportunities that match your guides — friendships, community, and fresh starts.</p>
+<a data-i18n="home.link.learn-more.5" href="services.html#new-connections">Learn more →</a>
+</article>
+<article class="card">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<circle cx="14" cy="24" r="5" stroke="currentColor" stroke-width="1.5"></circle>
+<circle cx="34" cy="24" r="5" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M19 24 L29 24" stroke="currentColor" stroke-width="1.5"></path>
+<circle cx="24" cy="14" r="4" stroke="currentColor" stroke-width="1.5"></circle>
+</svg>
+<h3 data-i18n="home.h3.totem-connections-directory">Totem Connections Directory</h3>
+<p data-i18n="home.p.opt-in-with-your-four-totem">Opt in with your four totem animals and browse others in the public database — matched by Rainbow, Shadow, Trine, or Mirror connections.</p>
+<a data-i18n="home.link.find-your-people" href="connections.html">Find your people →</a>
+</article>
+<article class="card">
+<svg aria-hidden="true" class="card-icon" fill="none" viewbox="0 0 48 48">
+<rect height="28" stroke="currentColor" stroke-width="1.5" width="8" x="8" y="10"></rect>
+<rect height="28" stroke="currentColor" stroke-width="1.5" width="8" x="16" y="10"></rect>
+<rect height="28" stroke="currentColor" stroke-width="1.5" width="8" x="24" y="10"></rect>
+<rect height="28" stroke="currentColor" stroke-width="1.5" width="8" x="32" y="10"></rect>
+</svg>
+<h3 data-i18n="home.h3.totem-animals-calculator">Calculator</h3>
+<p data-i18n="home.p.discover-your-four-totem-animal-guides">Discover your four totem animal guides free — Spiritual, Mental, Emotional, and Physical — from your birth date, time, and city.</p>
+<a data-i18n="home.link.reveal-your-totem-animals" href="calculator.html">Reveal your totem animals →</a>
+</article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="home.section-label.book-a-session">Book a Session</span>
+<h2 data-i18n="home.h2.your-reading-step-by-step">Your Reading, Step by Step</h2>
+<p data-i18n="home.p.every-session-follows-a-clear-comfortabl">Every session follows a clear, comfortable process from first contact to follow-up.</p>
+</div>
+<div class="steps-grid">
+<div class="step">
+<span class="step-num">1</span>
+<h3 data-i18n="home.h3.reach-out">Reach Out</h3>
+<p data-i18n="home.p.choose-a-service-and-send-a">Choose a service and send a message with your birth date, time, and place if you have them.</p>
+</div>
+<div class="step">
+<span class="step-num">2</span>
+<h3 data-i18n="home.h3.schedule">Schedule</h3>
+<p data-i18n="home.p.we-ll-confirm-details-and-book">We'll confirm details and book a video session at a time that works for you.</p>
+</div>
+<div class="step">
+<span class="step-num">3</span>
+<h3 data-i18n="home.h3.your-session">Your Session</h3>
+<p data-i18n="home.p.a-focused-conversational-reading-tailore">A focused, conversational reading tailored to your questions — recorded for you to revisit.</p>
+</div>
+<div class="step">
+<span class="step-num">4</span>
+<h3 data-i18n="home.h3.integration">Integration</h3>
+<p data-i18n="home.p.receive-a-written-summary-and-optional">Receive a written summary and optional follow-up to deepen your understanding over time.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="home.section-label.client-reflections">Client Reflections</span>
+<h2 data-i18n="home.h2.words-from-the-circle">Words from the Circle</h2>
+</div>
+<div class="testimonial-grid">
+<figure class="testimonial">
+<blockquote>"The reading felt like someone finally translated the language my soul had been speaking. Deeply affirming and surprisingly practical."</blockquote>
+<cite>— M.K., Personal Reading Client</cite>
+</figure>
+<figure class="testimonial">
+<blockquote>"Our compatibility session gave us a shared vocabulary for our differences. We still refer back to it months later."</blockquote>
+<cite>— J. &amp; R., Synastry Reading</cite>
+</figure>
+<figure class="testimonial">
+<blockquote>"The transit forecast helped me choose the right moment to launch my business. I felt supported, not dictated to."</blockquote>
+<cite>— S.L., Transit Session</cite>
+</figure>
+</div>
+</div>
+</section>
+<section class="section section--learn" id="faq">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="home.faq.section-label.faq">FAQ</span>
+<h2 data-i18n="home.faq.h2.questions-about-the-system">Questions About the System?</h2>
+<p data-i18n="home.faq.p.animal-names-birth-times-compatibility-a">Animal names, birth times, compatibility, and why the same animals can still look so different in two people.</p>
+</div>
+<p class="faq-home-cta">
+<a class="btn btn-outline" data-i18n="home.faq.btn.read-the-faq" href="faq.html">Read the FAQ</a>
+</p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta-band">
+<h2 data-i18n="home.h2.ready-to-begin">Ready to Begin?</h2>
+<p data-i18n="home.p.whether-you-re-new-to-astrology">Whether you're new to astrology or deepening an existing practice, your first step is a conversation.</p>
+<a class="btn btn-primary" data-i18n="home.btn.schedule-your-session" href="contact.php">Schedule Your Session</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-inner">
+<span class="footer-brand">Totem Astrology™</span>
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="how-it-works.html">How It Works</a>
+<a href="calculator.html">Calculator</a>
+<a href="connections.html">Connections</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="faq.html">FAQ</a>
+<a href="terms.html">Terms &amp; IP</a>
+<a href="contact.php">Contact</a>
+</nav>
+<p class="footer-copy">© 2026 Travis Barrett LeBlanc / TotemAstrology.com. Totem Astrology™. All rights reserved. · Site updated Jul 7, 2026 · <a href="terms.html">Terms &amp; IP</a></p>
+</div>
+</footer>
+</div>
+<script src="js/stars.js?v=20260618"></script>
+<script src="js/main.js?v=20260908"></script>
+<script src="js/i18n-boot.js?v=20260718e" type="module"></script>
+</body>
+</html>

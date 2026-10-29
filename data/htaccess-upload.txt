@@ -1,0 +1,6 @@
+# Upload this file to public_html/data/ on GoDaddy, then rename it to .htaccess
+# (Same idea as htaccess-upload.txt in the site root — cPanel and Mac upload dialogs
+#  often hide dotfiles, so this visible copy is easier to upload.)
+
+# Block web access to the connections database and other private files.
+Require all denied

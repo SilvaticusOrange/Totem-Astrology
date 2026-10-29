@@ -1,0 +1,51 @@
+=== to: pending 287/619
+  to 25/287
+  to 50/287
+  to 75/287
+  to 100/287
+  to 125/287
+  to 150/287
+  to 175/287
+  to 200/287
+  retry to attempt=1: ; sleep 1.5s
+  retry to attempt=2: ; sleep 3.0s
+  retry to attempt=3: ; sleep 4.5s
+  retry to attempt=4: ; sleep 6.0s
+  retry to attempt=5: ; sleep 7.5s
+  retry to attempt=6: ; sleep 9.0s
+FAIL to page.connType.same-as-me.p.the-same-totem-animal-at-the.2: bing failed for to: 
+  to 225/287
+  to 250/287
+  to 275/287
+=== fj: pending 619/619
+  fj 25/619
+  fj 50/619
+  fj 75/619
+  fj 100/619
+  fj 125/619
+  fj 150/619
+  fj 175/619
+  fj 200/619
+  fj 225/619
+  fj 250/619
+  fj 275/619
+  fj 300/619
+  fj 325/619
+  fj 350/619
+  fj 375/619
+  fj 400/619
+  fj 425/619
+  fj 450/619
+  fj 475/619
+  fj 500/619
+  fj 525/619
+  fj 550/619
+  retry fj attempt=1: ; sleep 1.5s
+  retry fj attempt=2: ; sleep 3.0s
+  retry fj attempt=3: ; sleep 4.5s
+  retry fj attempt=4: ; sleep 6.0s
+  retry fj attempt=5: ; sleep 7.5s
+  retry fj attempt=6: ; sleep 9.0s
+FAIL fj page.connType.same-as-me.p.the-same-totem-animal-at-the.2: bing failed for fj: 
+  fj 575/619
+  fj 600/619

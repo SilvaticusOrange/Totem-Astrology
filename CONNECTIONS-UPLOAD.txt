@@ -1,0 +1,102 @@
+Totem Connections — upload checklist (GoDaddy cPanel File Manager)
+================================================================
+
+Your Mac files (upload THESE exact files):
+
+  connections.html              →  public_html/connections.html
+  connections-admin.php         →  public_html/connections-admin.php
+  api/connections.php           →  public_html/api/connections.php
+  api/connections-lib.php       →  public_html/api/connections-lib.php
+  api/connections-admin.php     →  public_html/api/connections-admin.php
+  data/connections-config.php   →  public_html/data/connections-config.php  (see below)
+  data/.htaccess                →  public_html/data/.htaccess
+
+Recommended: DELETE the old file in cPanel first, then upload the new one.
+(Overwrite sometimes leaves a stale copy on GoDaddy.)
+
+
+ADMIN PASSWORD SETUP (simple)
+-----------------------------
+1. On your Mac, open or create:
+     data/connections-config.php
+
+2. Set your password in plain text:
+     'adminPassword' => 'your-new-password-here',
+
+3. Upload to GoDaddy:
+     public_html/data/connections-config.php
+
+   (That folder is private — blocked by data/.htaccess.)
+
+4. Sign in at:
+     https://totemastrology.com/connections-admin.php
+   Use the same password you typed in step 2.
+
+To reset a forgotten password: edit adminPassword in that file, re-upload, done.
+
+
+HOW MODERATION WORKS
+--------------------
+- New directory submissions are saved as pending.
+- They do NOT appear in the public Connections browse list until you approve them.
+- You receive an optional email ping when someone submits (notifyOnSubmit in config).
+- Existing listings on the server are kept as approved automatically.
+
+
+VERIFY THE HTML UPLOAD WORKED
+-----------------------------
+Open: https://totemastrology.com/connections.html
+
+Scroll to Step 2 (Join the directory). Under the button you must see:
+
+  Page build 20260883
+
+If you still see an older build line, the HTML upload did not land.
+
+
+VERIFY THE PHP UPLOAD WORKED
+----------------------------
+Open: https://totemastrology.com/api/connections.php
+
+Scroll to the END of the JSON. The last part must include:
+
+  ,"apiVersion":4,"moderation":true}
+
+If you see "temporarily unavailable" instead, upload these files and fix storage:
+
+  api/connections.php
+  api/connections-lib.php
+  api/connections-health.php   (temporary diagnostic — delete after fixing)
+
+Then open: https://totemastrology.com/api/connections-health.php
+
+The JSON report tells you exactly what is missing (writable data/ folder,
+pdo_sqlite extension, etc.). Delete connections-health.php once ok is true.
+
+If apiVersion is 3 or moderation is missing, re-upload all three API files:
+  api/connections.php
+  api/connections-lib.php
+  api/connections-admin.php
+
+
+VERIFY ADMIN WORKS
+------------------
+Open: https://totemastrology.com/connections-admin.php
+
+You should see a password sign-in form (or the moderation queue after login).
+If you see "Admin is not configured yet", upload data/connections-config.php.
+
+
+FILE SIZES (approximate — check in cPanel after upload)
+-------------------------------------------------------
+  connections.html          ~386 KB
+  connections-admin.php     ~8 KB
+  api/connections.php       ~4 KB
+  api/connections-lib.php   ~8 KB
+  api/connections-admin.php ~4 KB
+
+
+WHY JOIN FAILS WHEN UPLOADS ARE STALE
+-------------------------------------
+Both connections.html and the api/ files must be updated together.
+The page expects apiVersion 4 with moderation enabled.

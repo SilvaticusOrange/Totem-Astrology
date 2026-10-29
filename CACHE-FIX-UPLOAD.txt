@@ -1,0 +1,33 @@
+CACHE FIX — upload these files to GoDaddy (public_html/)
+=======================================================
+
+This is NOT a cookies problem. Your browser was keeping old HTML and
+especially old js/main.js (stuck on version 20260618 from months ago).
+
+ONE-TIME UPLOAD (delete old files first, then upload new ones):
+
+  index.html            → public_html/index.html
+  index.php             → public_html/index.php
+  js/main.js            → public_html/js/main.js
+  api/site-config.php   → public_html/api/site-config.php
+  htaccess-upload.txt   → public_html/.htaccess  (rename after upload)
+
+Then do ONE hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows).
+
+VERIFY IT WORKED
+----------------
+1. Open: https://totemastrology.com/api/site-config.php
+   Must show: "version":"20260805"
+
+2. Open: https://totemastrology.com/js/main.js?v=20260805
+   Search page for: syncLiveSiteConfig
+
+3. Visit homepage normally — promo bars should match site-config.php text.
+
+GOING FORWARD
+-------------
+Homepage promo copy: edit api/site-config.php only, upload that one file.
+Full page layout changes: also bump SITE_VERSION in site-config.php and
+page-version in index.html to the same date (e.g. 20260806).
+
+You should NOT need private windows or clearing history after this.

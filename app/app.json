@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Totem Connections",
+    "slug": "totem-connections",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "totem-connect",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a0f"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.totemastrology.connect",
+      "appleTeamId": "9KL72QF26B"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0a0f"
+      },
+      "package": "com.totemastrology.connect",
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-status-bar",
+      "expo-audio",
+      "expo-dev-client"
+    ]
+  }
+}

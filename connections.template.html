@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<!-- page rev 20260890 — typeable birth date/time on mobile -->
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="0" http-equiv="Expires"/>
+<meta content="20260890" name="page-version"/>
+<script>
+    (function () {
+      var PAGE_VERSION = '20260890';
+      if (!location.search.includes('v=' + PAGE_VERSION)) {
+        var query = location.search ? location.search + '&v=' + PAGE_VERSION : '?v=' + PAGE_VERSION;
+        location.replace(location.pathname + query + location.hash);
+      }
+    })();
+  </script>
+<meta content="Join the Totem Connections directory — opt in with your four animal guides and discover Rainbow, Shadow, Mirror Opposite, Values Trine, and Same-As-Me matches." name="description"/>
+<link href="https://totemastrology.com/connections.html" rel="canonical"/>
+<title>Totem Connections — TotemAstrology.com</title>
+<link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/styles.css?v=20260716nav" rel="stylesheet"/>
+<style>
+    /* Connections page — inlined layout so updates show if styles.css upload is missed */
+    .connection-mode-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 1.25rem;
+      max-width: 56rem;
+      margin-inline: auto;
+    }
+
+    .connection-mode-grid .card:nth-child(1) { grid-column: 1 / span 2; }
+    .connection-mode-grid .card:nth-child(2) { grid-column: 3 / span 2; }
+    .connection-mode-grid .card:nth-child(3) { grid-column: 5 / span 2; }
+    .connection-mode-grid .card:nth-child(4) { grid-column: 2 / span 2; }
+    .connection-mode-grid .card:nth-child(5) { grid-column: 4 / span 2; }
+
+    .connection-mode-grid .card {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1.35rem;
+    }
+
+    .connection-mode-grid .card h3 { margin-top: 0; }
+    .connection-mode-grid .card p { margin-bottom: 0; }
+
+    .connection-mode-card {
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .connection-mode-card:hover,
+    .connection-mode-card:focus-visible {
+      border-color: var(--gold, #c9a962);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .connection-mode-card__cta {
+      display: inline-block;
+      margin-top: 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold-light, #e0c88a);
+    }
+
+    .connections-form .btn,
+    .connection-filters .btn,
+    .connection-remove-form .btn {
+      text-transform: none;
+      letter-spacing: 0.01em;
+    }
+
+    .form-message {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius, 8px);
+      border: 1px solid var(--border, rgba(255, 255, 255, 0.12));
+      background: rgba(201, 169, 98, 0.06);
+      color: var(--text-muted, #e8eaf0);
+    }
+
+    .form-message.visible {
+      display: block;
+    }
+
+    .form-message--error {
+      border-color: rgba(232, 93, 76, 0.55);
+      background: rgba(232, 93, 76, 0.12);
+      color: #f0a59c;
+    }
+
+    .form-message--success {
+      border-color: rgba(107, 191, 138, 0.55);
+      background: rgba(107, 191, 138, 0.12);
+      color: #8fd4a8;
+    }
+
+    .form-message--info {
+      border-color: rgba(201, 169, 98, 0.35);
+    }
+
+    .connections-form .btn:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .connections-build-stamp {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted, #9aa3b5);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .connection-mode-grid {
+        grid-template-columns: 1fr;
+        max-width: 18rem;
+      }
+
+      .connection-mode-grid .card:nth-child(n) {
+        grid-column: auto;
+      }
+
+      .connection-mode-grid .card {
+        aspect-ratio: auto;
+        min-height: 10rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- BUILD_STAMP -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="page-wrap">
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="index.html">
+<svg aria-hidden="true" class="logo-icon" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M18 6 L18 30 M6 18 L30 18" opacity="0.5" stroke="currentColor" stroke-width="1"></path>
+<circle cx="18" cy="10" fill="currentColor" r="2"></circle>
+<circle cx="26" cy="18" fill="currentColor" opacity="0.7" r="1.5"></circle>
+<circle cx="12" cy="24" fill="currentColor" opacity="0.7" r="1.5"></circle>
+</svg>
+          TotemAstrology.com
+        </a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+<div class="header-actions">
+<nav aria-label="Main navigation" class="site-nav" id="site-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="how-it-works.html">How It Works</a></li>
+<li><a href="calculator.html">Totem Calculator</a></li>
+<li><a aria-current="page" href="connections.html">Connections</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.php">Contact</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</header>
+<main data-connections-page="" id="main-content">
+<section class="page-hero">
+<div class="container">
+<span class="section-label" data-i18n="page.conn.kicker">Totem Connections</span>
+<h1 data-i18n="page.conn.title">Totem Connections Directory</h1>
+<p data-i18n="page.conn.lead">The public database of opt-in totem poles. Enter your birth data to find Rainbow, Shadow, Mirror Opposite, Values Trine, and Same-As-Me matches — or list your four animals so others can find you.</p>
+</div>
+</section>
+<section class="section section--connection-modes">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="page.conn.section-label.five-connection-modes.2">Five Connection Modes</span>
+<h2 data-i18n="page.conn.h2.how-matching-works.2">How Matching Works</h2>
+<p data-i18n="page.conn.p.each-person-has-four-totem-animals.2">Each person has four totem animals — Spirit, Mind, Heart, and Body. We compare the same pillar between two people and score five connection modes.</p>
+</div>
+<div class="card-grid connection-mode-grid">
+<!-- CONNECTION_MODE_CARDS -->
+</div>
+</div>
+</section>
+<section class="section section--connections">
+<div class="container connections-layout">
+<div class="connections-column">
+<form class="bazi-form connections-form" id="connections-birth-form" novalidate="">
+<span class="section-label" data-i18n="page.conn.step1">Step 1</span>
+<h2 class="bazi-form-title" data-i18n="page.conn.step1Title">Your totem pole</h2>
+<p class="form-hint" data-i18n="page.conn.step1Hint">We calculate your four animals locally in your browser. Raw birth data is not sent to the directory unless you choose to join below.</p>
+<div class="form-group">
+<label data-i18n="form.birthDate" for="birth-date">Birth date</label>
+<input autocomplete="bday" data-i18n-placeholder="form.placeholder.birthDate" enterkeyhint="next" id="birth-date" inputmode="text" name="birthDate" placeholder="YYYY-MM-DD or MM/DD/YYYY" required="" type="text" spellcheck="false" autocapitalize="off"/>
+<p class="form-hint" data-i18n="page.calc.dateHint">Type your birth year directly — no scrolling required.</p>
+</div>
+<div class="form-group">
+<label data-i18n="form.birthTime" for="birth-time">Birth time</label>
+<input autocomplete="off" data-i18n-placeholder="form.placeholder.birthTime" enterkeyhint="next" id="birth-time" inputmode="text" name="birthTime" placeholder="14:30 or 2:30 PM" required="" type="text" spellcheck="false" autocapitalize="characters"/>
+<p class="form-hint" data-i18n="page.calc.timeHint">24-hour or AM/PM both work — e.g. 14:30 or 2:30 PM.</p>
+</div>
+<div class="form-group">
+<label data-i18n="form.birthCity" for="birth-city">Birth city</label>
+<div class="bazi-city-field">
+<input autocomplete="off" data-i18n-placeholder="page.calc.cityPlaceholder" id="birth-city" name="birthCity" placeholder="Type any city — e.g. London, Denver, Pokhara" type="text"/>
+<ul class="bazi-city-suggestions" hidden="" id="birth-city-suggestions"></ul>
+</div>
+<p class="bazi-city-timezone" hidden="" id="birth-city-timezone"></p>
+<p class="form-hint" data-i18n="page.calc.cityHint">Search any city worldwide, then click your match in the list.</p>
+</div>
+<div class="form-message" hidden="" id="connections-profile-error" role="alert"></div>
+<button class="btn btn-primary" data-i18n="page.conn.calculate" type="submit">Calculate My Totems</button>
+<p class="form-hint connections-step-hint" data-i18n="page.conn.step1Footer">Pick your birth city from the dropdown list — required before joining the directory.</p>
+</form>
+<div class="connection-profile-summary" hidden="" id="connections-profile-summary"></div>
+</div>
+<div class="connections-column">
+<form class="bazi-form connections-form" id="connections-join-form" novalidate="">
+<span class="section-label" data-i18n="page.conn.step2">Step 2 · Optional</span>
+<h2 class="bazi-form-title" data-i18n="page.conn.join">Join Totem Connections</h2>
+<p class="form-hint" data-i18n="page.conn.joinHint">Your username is your public name. List your four totem animals and optional current area so others nearby can find you. Email is optional and only shared if you provide it. New listings are reviewed before they appear publicly.</p>
+<p class="form-hint" id="connections-join-username" hidden></p>
+<div class="form-group">
+<label for="directory-city"><span data-i18n="page.conn.currentCity">Current city / area</span> <span class="field-optional" data-i18n="page.conn.optionalNearby">(optional, for nearby search)</span></label>
+<div class="bazi-city-field">
+<input autocomplete="off" data-i18n-placeholder="page.conn.currentCityPlaceholder" id="directory-city" name="directoryCity" placeholder="Where you are now — e.g. Denver, London" type="text"/>
+<ul class="bazi-city-suggestions" hidden="" id="directory-city-suggestions"></ul>
+</div>
+<p class="form-hint" data-i18n="page.conn.currentCityHint">Pick a city from the suggestions so people can find connections near you.</p>
+</div>
+<div class="form-group">
+<label for="intro"><span data-i18n="page.conn.intro">Short intro</span> <span class="field-optional" data-i18n="page.conn.optional">(optional)</span></label>
+<textarea data-i18n-placeholder="discover.introPlaceholder" id="intro" maxlength="280" name="intro" placeholder="What kind of connection are you hoping to find?" rows="3"></textarea>
+</div>
+<div class="form-group">
+<label for="contact-email"><span data-i18n="page.conn.email">Email</span> <span class="field-optional" data-i18n="page.conn.optional">(optional)</span></label>
+<input data-i18n-placeholder="page.conn.emailPlaceholder" id="contact-email" name="contactEmail" placeholder="Only shown if you choose to include it" type="email"/>
+</div>
+<div class="form-group">
+<label class="checkbox-label"><input type="checkbox" name="consent" value="1" required> <span data-i18n="page.conn.consent">I agree to list my username, four totem animals, optional area, intro, and optional email in this public directory after review.</span></label>
+</div>
+<button class="btn btn-outline" data-i18n="page.conn.join" type="submit">Join Totem Connections</button>
+<div class="form-message" hidden="" id="connections-join-message" role="status"></div>
+<p class="connections-build-stamp" data-i18n="page.conn.connections-join-form.p.page-build-20260883.2" id="connections-build-stamp">Page build 20260883</p>
+</form>
+</div>
+</div>
+</section>
+<section class="section section--connections-results">
+<div class="container">
+<div class="section-header">
+<span class="section-label" data-i18n="page.conn.step3">Step 3</span>
+<h2 data-i18n="page.conn.browseTitle">Browse matches</h2>
+<p data-i18n="page.conn.browseLead">Filter the public directory by connection mode. A full match means all four pillars align for that mode.</p>
+</div>
+<form class="connection-filters" id="connections-filters">
+<div class="form-group">
+<label data-i18n="page.conn.matchMode" for="match-type">Connection mode</label>
+<select id="match-type" name="matchType">
+<option data-i18n="match.rainbow.label" value="rainbow">Rainbow</option>
+<option data-i18n="match.shadow.label" value="shadow">Shadow</option>
+<option data-i18n="match.mirror.label" value="mirror">Mirror Opposite</option>
+<option data-i18n="match.trine.label" value="trine">Values Trine</option>
+<option data-i18n="match.sameAsMe.label" value="sameAsMe">Same-As-Me</option>
+</select>
+</div>
+<div class="form-group">
+<label data-i18n="page.conn.minPillars" for="min-count">Minimum matching pillars</label>
+<select id="min-count" name="minCount">
+<option data-i18n="page.conn.min1" value="1">1+ pillars</option>
+<option data-i18n="page.conn.min2" value="2">2+ pillars</option>
+<option data-i18n="page.conn.min3" value="3">3+ pillars</option>
+<option data-i18n="page.conn.min4" value="4">Full match (4/4)</option>
+</select>
+</div>
+<button class="btn btn-outline" data-i18n="page.conn.search" id="connections-refresh" type="button">Search The Directory</button>
+</form>
+<div class="form-message" hidden="" id="connections-directory-status" role="status"></div>
+<div class="connections-results" id="connections-results">
+<p class="connection-empty" data-i18n="page.conn.emptyInitial">Calculate your totem pole above to browse matches.</p>
+</div>
+</div>
+</section>
+<section class="section section--connections-manage">
+<div class="container">
+<form class="connection-remove-form" id="connections-remove-form">
+<span class="section-label" data-i18n="page.conn.leaveKicker">Leave the directory</span>
+<h2 data-i18n="page.conn.removeTitle">Remove your listing</h2>
+<p class="form-hint" data-i18n="page.conn.removeHint">Sign in to your Totem account, then remove your listing here. No password or token needed beyond your signed-in session.</p>
+<div class="form-message" hidden="" id="connections-remove-message" role="status"></div>
+<button class="btn btn-outline" data-i18n="page.conn.removeSubmit" type="submit">Remove My Listing</button>
+</form>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-inner">
+<span class="footer-brand">Totem Astrology™</span>
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="how-it-works.html">How It Works</a>
+<a href="calculator.html">Calculator</a>
+<a href="connections.html">Connections</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="faq.html">FAQ</a>
+<a href="terms.html">Terms &amp; IP</a>
+<a href="contact.php">Contact</a>
+</nav>
+<p class="footer-copy">© 2026 Travis Barrett LeBlanc / TotemAstrology.com. Totem Astrology™. All rights reserved. <a href="terms.html">Terms &amp; IP</a></p>
+</div>
+</footer>
+</div>
+<script src="js/stars.js?v=20260618"></script>
+<script src="js/main.js?v=20260807"></script>
+<!-- INLINE_CONNECTIONS_SCRIPT -->
+<script src="js/i18n-boot.js?v=20260903" type="module"></script>
+</body>
+</html>

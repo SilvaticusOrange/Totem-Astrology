@@ -1,0 +1,22 @@
+ACCOUNT PAGE FIX + USERNAME = DISPLAY NAME — upload to GoDaddy public_html/
+=========================================================================
+
+Blank “Sign In Here” page was caused by a missing dependency:
+  js/timezones.js was 404, so account.js never ran and forms stayed hidden.
+
+Upload ALL of these (delete old file first, then upload):
+
+  account.html              → public_html/account.html
+  connections.html          → public_html/connections.html
+  api/auth.php              → public_html/api/auth.php
+  api/connections.php       → public_html/api/connections.php
+  api/connections-lib.php   → public_html/api/connections-lib.php
+  js/account.js             → public_html/js/account.js
+  js/auth-client.js         → public_html/js/auth-client.js
+  js/birth-form.js          → public_html/js/birth-form.js
+  js/timezones.js           → public_html/js/timezones.js   ← REQUIRED (was missing)
+  js/parse-birth.js         → public_html/js/parse-birth.js
+  js/country-dial-codes.js  → public_html/js/country-dial-codes.js
+  js/i18n-en.js             → public_html/js/i18n-en.js
+
+Then hard refresh Account (Cmd+Shift+R). Page version: 20260718j

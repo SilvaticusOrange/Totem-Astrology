@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<!-- page rev 20260890 — typeable birth date/time on mobile -->
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="0" http-equiv="Expires"/>
+<meta content="20260890" name="page-version"/>
+<script>
+    (function () {
+      var PAGE_VERSION = '20260890';
+      if (!location.search.includes('v=' + PAGE_VERSION)) {
+        var query = location.search ? location.search + '&v=' + PAGE_VERSION : '?v=' + PAGE_VERSION;
+        location.replace(location.pathname + query + location.hash);
+      }
+    })();
+  </script>
+<meta content="Discover your four totem animal guides at TotemAstrology.com — Spiritual, Mental, Emotional, and Physical guides on your totem pole." name="description"/>
+<link href="https://totemastrology.com/calculator.html" rel="canonical"/>
+<title>Totem Animals Calculator — TotemAstrology.com</title>
+<link href="assets/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/styles.css?v=20260716nav" rel="stylesheet"/>
+<style>
+    /* Calculator + totem modal — inlined so updates show even if styles.css upload is missed */
+    .bazi-pillars-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: 100%;
+      min-width: 0;
+    }
+
+    .bazi-pillar {
+      min-width: 0;
+    }
+
+    .bazi-totem-art-wrap {
+      width: 100%;
+      max-width: min(3in, 100%);
+      height: auto;
+      aspect-ratio: 1;
+    }
+
+    @media (max-width: 640px) {
+      .bazi-pillars-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+
+      .bazi-pillar {
+        padding: 0.65rem 0.45rem 0.75rem;
+        gap: 0.5rem;
+      }
+
+      .bazi-pillar-line {
+        font-size: clamp(0.6875rem, 3.2vw, 0.8125rem);
+        line-height: 1.28;
+      }
+
+      .bazi-totem-art-wrap {
+        max-width: min(2.75in, 100%);
+      }
+    }
+
+    .bazi-pillar--interactive {
+      width: 100%;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .bazi-pillar--interactive:hover {
+      border-color: rgba(201, 169, 98, 0.45);
+      box-shadow: 0 4px 20px rgba(201, 169, 98, 0.12);
+    }
+
+    .bazi-pillar-cta {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c9a962;
+    }
+
+    .bazi-chart-hint {
+      margin: 0 0 1rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: #9aa3b8;
+      text-align: center;
+      border: 1px solid rgba(201, 169, 98, 0.22);
+      border-radius: 10px;
+      background: rgba(201, 169, 98, 0.08);
+    }
+
+    .bazi-chart-hint strong {
+      color: #e8d5a3;
+    }
+
+    .bazi-about-subhead {
+      margin: 1.25rem 0 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c9a962;
+    }
+
+    .bazi-about-links {
+      margin: 0 0 0.75rem;
+      padding-left: 1.1rem;
+      font-size: 0.9375rem;
+      color: #9aa3b8;
+      line-height: 1.55;
+    }
+
+    .bazi-about-links a {
+      color: #e8d5a3;
+    }
+
+    .totem-modal {
+      width: min(32rem, calc(100vw - 2rem));
+      max-height: calc(100dvh - 2rem);
+      padding: 0;
+      border: 1px solid rgba(201, 169, 98, 0.15);
+      border-radius: 16px;
+      background: transparent;
+      color: #e8eaf0;
+      color-scheme: dark;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+    }
+
+    .totem-modal::backdrop {
+      background: rgba(5, 8, 16, 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .totem-modal__panel {
+      position: relative;
+      max-height: calc(100dvh - 2rem);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background-color: #0a0e1a;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(107, 91, 149, 0.28), transparent),
+        radial-gradient(circle at 18% 82%, rgba(201, 169, 98, 0.08), transparent 42%),
+        radial-gradient(circle at 82% 58%, rgba(107, 91, 149, 0.12), transparent 38%);
+    }
+
+    .totem-modal__panel::before,
+    .totem-modal__panel::after {
+      pointer-events: none;
+      position: absolute;
+      color: #c9a962;
+      opacity: 0.45;
+      z-index: 0;
+    }
+
+    .totem-modal__panel::before {
+      content: "✦";
+      top: 1.25rem;
+      left: 12%;
+      font-size: 0.75rem;
+    }
+
+    .totem-modal__panel::after {
+      content: "✦ ✦";
+      top: 2.5rem;
+      right: 10%;
+      font-size: 0.5rem;
+      letter-spacing: 0.35rem;
+      color: #8a7344;
+    }
+
+    .totem-modal__close {
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
+      float: right;
+      z-index: 3;
+      width: 2.25rem;
+      height: 2.25rem;
+      margin: 0.65rem 0.65rem 0.25rem 0.5rem;
+      padding: 0;
+      border: 1px solid rgba(201, 169, 98, 0.15);
+      border-radius: 999px;
+      background: rgba(10, 14, 26, 0.85);
+      color: #e8d5a3;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .totem-modal__body {
+      position: relative;
+      z-index: 1;
+      clear: both;
+      padding: 0.25rem 1.35rem 1.75rem;
+    }
+
+    .totem-modal__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .totem-modal__art {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 0 0 1rem;
+    }
+
+    .totem-modal__art .bazi-totem-art-wrap {
+      width: min(12.5rem, 72vw);
+      max-width: 100%;
+      background: rgba(18, 24, 41, 0.65);
+    }
+
+    .totem-modal__title {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.625rem, 4vw, 2rem);
+      line-height: 1.15;
+      color: #e8d5a3;
+    }
+
+    .totem-modal__subtitle {
+      margin: 0.5rem 0 0;
+      font-size: 0.9375rem;
+      color: #9aa3b8;
+    }
+
+    .totem-modal__guide {
+      margin: 0.75rem 0 0;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9aa3b8;
+    }
+
+    .totem-modal__copy p {
+      margin: 0 0 1rem;
+      color: #9aa3b8;
+      line-height: 1.65;
+    }
+
+    .totem-modal__copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .totem-modal__copy strong {
+      color: #e8eaf0;
+    }
+
+    .totem-modal__copy a {
+      color: #e8d5a3;
+    }
+
+    @media (max-width: 640px) {
+      .totem-modal {
+        width: min(32rem, calc(100vw - 1rem));
+        max-height: calc(100dvh - 1rem);
+      }
+
+      .totem-modal__panel {
+        max-height: calc(100dvh - 1rem);
+      }
+
+      .totem-modal__close {
+        top: calc(env(safe-area-inset-top, 0px) + 2.5rem);
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- BUILD_STAMP -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="page-wrap">
+<header class="site-header">
+<div class="container header-inner">
+<a class="logo" href="index.html">
+<svg aria-hidden="true" class="logo-icon" fill="none" viewbox="0 0 36 36">
+<circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="1.5"></circle>
+<path d="M18 6 L18 30 M6 18 L30 18" opacity="0.5" stroke="currentColor" stroke-width="1"></path>
+<circle cx="18" cy="10" fill="currentColor" r="2"></circle>
+<circle cx="26" cy="18" fill="currentColor" opacity="0.7" r="1.5"></circle>
+<circle cx="12" cy="24" fill="currentColor" opacity="0.7" r="1.5"></circle>
+</svg>
+          TotemAstrology.com
+        </a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle">
+<span></span><span></span><span></span>
+</button>
+<div class="header-actions">
+<nav aria-label="Main navigation" class="site-nav" id="site-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="how-it-works.html">How It Works</a></li>
+<li><a aria-current="page" href="calculator.html">Totem Calculator</a></li>
+<li><a href="connections.html">Connections</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.php">Contact</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</header>
+<main data-bazi-calculator="" id="main-content">
+<section class="page-hero">
+<div class="container">
+<span class="section-label" data-i18n="page.calc.kicker">Totem Animals</span>
+<h1 data-i18n="page.calc.title">Calculator</h1>
+<p data-i18n="page.calc.lead">Enter birth date and time — we convert to Nepal Time (NPT, UTC+5:45) and reveal your four totem animal guides.</p>
+</div>
+</section>
+<section class="section section--calculator">
+<div class="container">
+<div class="calculator-layout">
+<form class="bazi-form" id="bazi-form" novalidate="">
+<span class="section-label" data-i18n="page.calc.formKicker">Your Totem Animals</span>
+<h2 class="bazi-form-title" data-i18n="page.calc.formTitle">Birth Details</h2>
+<div class="form-group">
+<label data-i18n="form.birthDate" for="birth-date">Birth date</label>
+<input autocomplete="bday" data-i18n-placeholder="form.placeholder.birthDate" enterkeyhint="next" id="birth-date" inputmode="text" name="birthDate" placeholder="YYYY-MM-DD or MM/DD/YYYY" required="" type="text" spellcheck="false" autocapitalize="off"/>
+<p class="form-hint" data-i18n="page.calc.dateHint">Type your birth year directly — no scrolling required.</p>
+</div>
+<div class="form-group">
+<label data-i18n="form.birthTime" for="birth-time">Birth time</label>
+<input autocomplete="off" data-i18n-placeholder="form.placeholder.birthTime" enterkeyhint="next" id="birth-time" inputmode="text" name="birthTime" placeholder="14:30 or 2:30 PM" required="" type="text" spellcheck="false" autocapitalize="characters"/>
+<p class="form-hint" data-i18n="page.calc.timeHint">24-hour or AM/PM both work — e.g. 14:30 or 2:30 PM.</p>
+</div>
+<div class="form-group">
+<label data-i18n="form.birthCity" for="birth-city">Birth city</label>
+<div class="bazi-city-field">
+<input autocomplete="off" data-i18n-placeholder="page.calc.cityPlaceholder" id="birth-city" name="birthCity" placeholder="Type any city — e.g. London, Denver, Pokhara" type="text"/>
+<ul class="bazi-city-suggestions" hidden="" id="birth-city-suggestions"></ul>
+</div>
+<p class="bazi-city-timezone" hidden="" id="birth-city-timezone"></p>
+<p class="form-hint" data-i18n="page.calc.cityHint">Search any city worldwide, then click your match in the list.</p>
+</div>
+<div class="form-error" hidden="" id="bazi-form-error" role="alert"></div>
+<button class="btn btn-primary bazi-submit" data-i18n="page.calc.reveal" type="submit">Reveal My Totem Animals</button>
+</form>
+<aside class="bazi-about">
+<h3 data-i18n="page.calc.h3.how-it-works.2">How it works</h3>
+<p data-i18n="page.calc.p.your-birth-year-month-day-and.2" data-i18n-html="true">Your birth <strong>year, month, day, and hour</strong> each reveal one totem animal guide — your Spiritual, Mental, Emotional, and Physical allies.</p>
+<p data-i18n="page.calc.p.before-calculating-we-convert-your-birth.2" data-i18n-html="true">Before calculating, we convert your birth moment to <strong>Nepal Time</strong> — a shift rooted in the Four Pillars tradition and the spiritual geography of the Buddha’s birthplace. <a data-i18n="page.calculator.template.link.why-nepal-time" href="nepal-time.html">Why Nepal Time?</a></p>
+<p data-i18n="page.calc.p.after-your-totem-pole-appears-click.2" data-i18n-html="true">After your totem pole appears, <strong>click any animal card</strong> to open a detailed guide about that totem, its element, and its Yin or Yang quality.</p>
+<h4 class="bazi-about-subhead" data-i18n="page.calc.h4.the-bigger-picture.2">The bigger picture</h4>
+<p data-i18n="page.calc.p.totem-astrology-maps-your-four-guides.2" data-i18n-html="true">Totem Astrology maps your four guides through <strong>Nepal Time</strong>, the <strong>Five Elements</strong>, <strong>Yin &amp; Yang</strong>, <strong>Values Triangles</strong>, and <strong>Sacred Roles</strong> — together they form a language for understanding yourself and others.</p>
+<p><a class="btn btn-outline" data-i18n="page.calc.btn.how-it-works.2" href="how-it-works.html">How It Works</a></p>
+<p data-i18n="page.calc.p.for-a-personal-reading-book-a.2" data-i18n-html="true">For a personal reading, <a data-i18n="page.calculator.template.link.book-a-session" href="contact.php">book a session</a>.</p>
+</aside>
+<div class="bazi-results" hidden="" id="bazi-results"></div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="cta-band">
+<h2 data-i18n="page.calc.h2.want-a-personal-reading.2">Want a Personal Reading?</h2>
+<p data-i18n="page.calc.p.the-calculator-shows-your-totem-pole.2">The calculator shows your totem pole — a session translates it into guidance for your life and relationships.</p>
+<a class="btn btn-primary" data-i18n="page.calc.btn.book-a-reading.2" href="contact.php">Book a Reading</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-inner">
+<span class="footer-brand">Totem Astrology™</span>
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="how-it-works.html">How It Works</a>
+<a href="calculator.html">Calculator</a>
+<a href="connections.html">Connections</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="faq.html">FAQ</a>
+<a href="terms.html">Terms &amp; IP</a>
+<a href="contact.php">Contact</a>
+</nav>
+<p class="footer-copy">© 2026 Travis Barrett LeBlanc / TotemAstrology.com. Totem Astrology™. All rights reserved. <a href="terms.html">Terms &amp; IP</a></p>
+</div>
+</footer>
+</div>
+<script src="js/stars.js?v=20260618"></script>
+<script src="js/main.js?v=20260807"></script>
+<!-- INLINE_CALCULATOR_SCRIPT -->
+<script src="js/i18n-boot.js?v=20260903" type="module"></script>
+</body>
+</html>

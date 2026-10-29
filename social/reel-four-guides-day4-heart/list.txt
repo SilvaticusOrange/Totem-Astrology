@@ -1,0 +1,11 @@
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-four-guides-day4-heart/beat_00.png'
+duration 2.8
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-four-guides-day4-heart/beat_01.png'
+duration 3.4
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-four-guides-day4-heart/beat_02.png'
+duration 3.8
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-four-guides-day4-heart/beat_03.png'
+duration 2.8
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-four-guides-day4-heart/beat_04.png'
+duration 3.5
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-four-guides-day4-heart/beat_04.png'

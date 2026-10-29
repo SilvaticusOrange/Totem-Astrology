@@ -1,0 +1,41 @@
+Upload these files to GoDaddy (same folder for all API files):
+
+  public_html/api/connections.php
+  public_html/api/connections-lib.php
+  public_html/api/connections-admin.php
+  public_html/api/site-config.php
+
+connections.php — public directory join/list/remove (Connections page)
+connections-lib.php — shared database + moderation helpers (required by both APIs)
+connections-admin.php — moderation queue API (admin session required)
+site-config.php — live homepage promo text + cache-busting version (never cached)
+
+Also upload:
+
+  public_html/connections-admin.php   — password-protected moderation page
+  public_html/data/connections-config.php — admin password + email settings (private)
+
+The Connections page calls connections.php to save and load directory listings.
+New submissions stay pending until approved at /connections-admin.php
+The homepage calls site-config.php on every visit so promo text stays current.
+
+Also ensure this exists on the server:
+
+  public_html/data/.htaccess   (from data/htaccess-upload.txt, renamed to .htaccess)
+  public_html/data/            (folder permissions 755 or 775 — writable by PHP)
+
+After upload, test in your browser:
+
+  https://totemastrology.com/api/connections.php
+  → JSON like: {"profiles":[...],"apiVersion":4,"moderation":true}
+
+  https://totemastrology.com/connections-admin.php
+  → Admin sign-in page (after connections-config.php is uploaded)
+
+  https://totemastrology.com/api/site-config.php
+  → JSON like: {"version":"20260805","homePromo":[...]}
+
+If either URL shows "404 Not Found", that file is missing from public_html/
+(on your Mac: Projects/totem-astrology/api/ — upload the .php files from inside that folder)
+
+See CONNECTIONS-UPLOAD.txt for the full moderation setup checklist.

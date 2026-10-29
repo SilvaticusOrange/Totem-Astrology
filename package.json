@@ -1,0 +1,29 @@
+{
+  "name": "totem-astrology",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TotemAstrology.com — static astrology practice website",
+  "scripts": {
+    "dev": "npm run build:calculator && npx --yes serve . -p 3000",
+    "preview": "npm run dev",
+    "build:calculator": "esbuild js/calculator.src.js --bundle --format=iife --outfile=js/calculator.js --minify && node scripts/inline-calculator.mjs",
+    "build:connections": "esbuild js/connections.src.js --bundle --format=iife --outfile=js/connections.js --minify && node scripts/inline-connections.mjs",
+    "build:connection-pages": "node scripts/build-connection-pages.mjs",
+    "build": "npm run build:calculator && npm run build:connections",
+    "test:match": "node scripts/test-totem-match.mjs",
+    "app:install": "npm install --prefix app",
+    "app:start": "npm --prefix app start",
+    "app:sync-totems": "node scripts/generate-totem-image-registry.mjs",
+    "composite:totems": "node scripts/composite-totems.mjs",
+    "prune:totems": "node scripts/prune-totems.mjs",
+    "midjourney:prompts": "node scripts/midjourney-totem-prompts.mjs",
+    "install:totems": "node scripts/install-generated-totems.mjs",
+    "zip:totems": "npm run prune:totems && rm -f assets/images/totems/composited-upload.zip && zip -r assets/images/totems/composited-upload.zip assets/images/totems/composited",
+    "package": "npm run build && rm -f totem-astrology-upload.zip && zip -r totem-astrology-upload.zip index.html index.php about.html about.php totem-astrology.html sacred-roles.html services.html calculator.html connections.html connection-rainbow.html connection-shadow.html connection-mirror-opposite.html connection-values-trine.html connection-same-as-me.html connections-admin.php contact.html contact.php account.html faq.html how-it-works.html five-elements.html four-totem-guides.html yin-yang.html nepal-time.html terms.html .htaccess css js assets api data -x '*.DS_Store' -x 'js/calculator.src.js' -x 'js/calculator.js' -x 'js/connections.src.js' -x 'js/connections.js' -x 'js/bazi-calculator.src.js' -x 'js/bazi-calculator.js' -x 'js/bazi-calculator-module.js' -x 'js/timezones.js' -x 'calculator.template.html' -x 'connections.template.html' -x 'scripts/*' -x 'assets/images/totems/composited-upload.zip' -x 'values-triangles.html' -x 'data/*.db' -x 'data/*.db-journal' -x 'data/connections-config.php' -x 'js/i18n-parts/*'"
+  },
+  "devDependencies": {
+    "@openfate/bazi-engine": "^1.0.0",
+    "esbuild": "^0.28.1",
+    "sharp": "^0.35.1"
+  }
+}

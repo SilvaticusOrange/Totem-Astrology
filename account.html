@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta name="page-version" content="20260718j">
+  <script>
+    (function () {
+      var PAGE_VERSION = '20260718j';
+      var params = new URLSearchParams(location.search);
+      if (params.get('v') !== PAGE_VERSION) {
+        params.set('v', PAGE_VERSION);
+        location.replace(location.pathname + '?' + params.toString() + location.hash);
+      }
+    })();
+  </script>
+  <script>
+    /* Tab toggle is inline so it works even if account.js is slow/cached */
+    window.__totemSetAccountMode = function (mode) {
+      var next = mode === 'register' ? 'register' : 'login';
+      var root = document.getElementById('account-signed-out');
+      if (!root) return false;
+      root.querySelectorAll('[data-account-mode][role="tab"]').forEach(function (el) {
+        el.setAttribute('aria-selected', el.getAttribute('data-account-mode') === next ? 'true' : 'false');
+      });
+      root.querySelectorAll('[data-account-panel]').forEach(function (panel) {
+        var show = panel.getAttribute('data-account-panel') === next;
+        panel.hidden = !show;
+        panel.setAttribute('aria-hidden', show ? 'false' : 'true');
+      });
+      var url = location.pathname + location.search + (next === 'register' ? '#register' : '');
+      if (location.pathname + location.search + location.hash !== url) {
+        history.replaceState(null, '', url);
+      }
+      return true;
+    };
+  </script>
+  <meta name="description" content="Sign in to your TotemAstrology.com user profile, or create a free account with email or phone.">
+  <link rel="canonical" href="https://totemastrology.com/account.html">
+  <title>User Profile — TotemAstrology.com</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260716nav">
+  <style>
+    .account-auth {
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+    .account-auth__chooser {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+      margin: 0 auto 1.25rem;
+      padding: 0.3rem;
+      border: 1px solid rgba(201, 169, 98, 0.28);
+      border-radius: 999px;
+      background: rgba(12, 10, 8, 0.45);
+    }
+    .account-auth__choice {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.7rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .account-auth__choice:hover,
+    .account-auth__choice:focus-visible {
+      color: var(--gold-light);
+      outline: none;
+    }
+    .account-auth__choice[aria-selected="true"] {
+      color: var(--bg-deep);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      box-shadow: 0 4px 18px rgba(201, 169, 98, 0.28);
+    }
+    .account-auth__panel[hidden] {
+      display: none !important;
+    }
+    .account-auth__lead {
+      margin: 0 0 1.35rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      text-align: left;
+    }
+    .account-auth__hint {
+      margin: -0.65rem 0 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .account-card .form-note-gap {
+      margin: -0.55rem 0 1.25rem;
+    }
+    .account-auth__switch {
+      margin: 1.25rem 0 0;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .account-auth__switch button {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: none;
+      color: var(--gold-light);
+      font: inherit;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      cursor: pointer;
+    }
+    .account-auth__switch button:hover,
+    .account-auth__switch button:focus-visible {
+      color: var(--gold);
+      outline: none;
+    }
+    .account-card {
+      padding: clamp(1.5rem, 3.5vw, 2rem);
+      border: 1px solid rgba(201, 169, 98, 0.28);
+      border-radius: calc(var(--radius) + 4px);
+      background:
+        radial-gradient(ellipse at top left, rgba(201, 169, 98, 0.1), transparent 55%),
+        var(--bg-card);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+    }
+    .account-card h2 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.45rem, 3vw, 1.75rem);
+      color: var(--gold-light);
+    }
+
+    /* Nested bazi-form cards look messy here — flatten them */
+    .account-card .bazi-form {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    /* Stacked, full-width fields — symmetrical column */
+    .account-card .form-row {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.4rem;
+      margin: 0 0 1.15rem;
+      width: 100%;
+      overflow: visible;
+    }
+    .account-card .bazi-city-field {
+      width: 100%;
+    }
+    .account-card .form-row:last-of-type {
+      margin-bottom: 1.35rem;
+    }
+    .account-card .form-row > label {
+      display: block;
+      margin: 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--text);
+    }
+    .account-card .form-row > input,
+    .account-card .form-row > select,
+    .account-card .form-row > textarea,
+    .phone-field > input,
+    .phone-field > select {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0.8rem 1rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.35;
+      color: var(--text);
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .account-card .form-row > input:focus,
+    .account-card .form-row > select:focus,
+    .account-card .form-row > textarea:focus,
+    .phone-field > input:focus,
+    .phone-field > select:focus {
+      outline: none;
+      border-color: var(--gold-dim);
+      box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.14);
+    }
+    .phone-field {
+      display: grid;
+      grid-template-columns: minmax(8.5rem, 11rem) minmax(0, 1fr);
+      gap: 0.55rem;
+      width: 100%;
+    }
+    .phone-field > select {
+      padding-right: 0.55rem;
+      cursor: pointer;
+    }
+    .account-card .form-row > input[type="file"] {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.9rem;
+    }
+    .account-card .form-row > textarea {
+      min-height: 6.5rem;
+      resize: vertical;
+    }
+    .account-card .form-hint {
+      margin: 0;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+    .account-card .form-row > .form-hint {
+      margin-top: 0.05rem;
+    }
+    .account-card .form-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin: 0 0 1.15rem;
+    }
+    .account-card .form-pair > .form-row {
+      margin: 0;
+    }
+    .account-auth__panel .bazi-form > .btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 0.15rem;
+    }
+    .account-card .form-message {
+      margin-top: 0.85rem;
+    }
+    @media (max-width: 540px) {
+      .account-card .form-pair {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .account-card .form-pair > .form-row {
+        margin-bottom: 1.15rem;
+      }
+      .account-card .form-pair > .form-row:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .account-status {
+      margin: 0 0 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(201, 169, 98, 0.08);
+    }
+    .account-status strong { color: var(--gold-light); }
+    .account-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      border: 1px solid var(--border);
+    }
+    .account-badge--verified {
+      color: #1a1510;
+      background: rgba(201, 169, 98, 0.35);
+      border-color: var(--gold);
+    }
+    .account-badge--time {
+      color: #2a2010;
+      background: linear-gradient(135deg, #f0d78c 0%, #c9a962 55%, #a8883a 100%);
+      border-color: #e8c56a;
+    }
+    .account-badge--pending {
+      color: var(--gold-light);
+      background: rgba(201, 169, 98, 0.12);
+    }
+    .account-badge--rejected { color: #c97878; }
+    .account-subhead {
+      margin: 1.35rem 0 0.65rem;
+      font-size: 1.15rem;
+      color: var(--gold-light);
+    }
+    .account-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    #account-signed-in[hidden],
+    #account-signed-out[hidden] { display: none !important; }
+    .account-signed-in-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+      align-items: start;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    .account-signed-in-grid .account-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    .account-signed-in-grid .account-actions .btn {
+      flex: 1 1 auto;
+      min-width: 8.5rem;
+      justify-content: center;
+    }
+    .page-hero .container {
+      max-width: 40rem;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .page-hero h1 {
+      max-width: 16ch;
+      margin-inline: auto;
+    }
+    .field-asterisk {
+      margin-left: 0.15em;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .account-optional-note {
+      margin: 0.25rem 0 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .account-birth-block {
+      margin-top: 0.35rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid rgba(201, 169, 98, 0.18);
+    }
+
+    .listing-preview {
+      margin: 0 0 1.35rem;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border-radius: 14px;
+      border: 1px solid rgba(201, 169, 98, 0.35);
+      background:
+        radial-gradient(ellipse at top left, rgba(201, 169, 98, 0.12), transparent 55%),
+        linear-gradient(165deg, rgba(28, 24, 18, 0.55), rgba(16, 14, 12, 0.35));
+    }
+    .listing-preview__label {
+      margin: 0 0 0.85rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .listing-preview__bubbles {
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 1.1rem;
+    }
+    .listing-bubble {
+      margin: 0;
+      padding: 0.75rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(201, 169, 98, 0.22);
+      background: rgba(12, 10, 8, 0.45);
+    }
+    .listing-bubble__kicker {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232, 214, 170, 0.72);
+    }
+    .listing-bubble__value {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .listing-bubble--intro .listing-bubble__value {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.45;
+      color: rgba(245, 236, 220, 0.9);
+    }
+    .listing-bubble--muted .listing-bubble__value {
+      color: rgba(245, 236, 220, 0.55);
+      font-style: italic;
+      font-size: 0.92rem;
+    }
+    .listing-preview__guides {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .listing-preview__guide {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.4rem;
+      min-width: 0;
+    }
+    .listing-preview__guide .bazi-totem-art-wrap {
+      max-width: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .listing-preview__guide-meta {
+      text-align: center;
+    }
+    .listing-preview__guide-pillar {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232, 214, 170, 0.7);
+    }
+    .listing-preview__guide-name {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.82rem;
+      line-height: 1.25;
+      color: var(--gold-light);
+      word-break: break-word;
+    }
+    @media (max-width: 640px) {
+      .listing-preview__guides {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="page-wrap">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <svg class="logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="1.5"></circle>
+            <path d="M18 6 L18 30 M6 18 L30 18" stroke="currentColor" stroke-width="1" opacity="0.5"></path>
+            <circle cx="18" cy="10" r="2" fill="currentColor"></circle>
+            <circle cx="26" cy="18" r="1.5" fill="currentColor" opacity="0.7"></circle>
+            <circle cx="12" cy="24" r="1.5" fill="currentColor" opacity="0.7"></circle>
+          </svg>
+          TotemAstrology.com
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-actions">
+          <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="calculator.html">Totem Calculator</a></li>
+              <li><a href="connections.html">Connections</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.php">Contact</a></li>
+            </ul>
+          </nav>
+          <a class="user-profile-btn" data-i18n="nav.account" href="account.html" aria-current="page">User Profile</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <span class="section-label" data-i18n="page.account.kicker">User Profile</span>
+          <h1 data-i18n="page.account.title">Sign In Here</h1>
+          <p data-i18n="page.account.lead">Access your profile, directory listing, and saved birth details. Free to join with email or phone.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div id="account-reset" class="account-card account-auth__panel" hidden>
+            <h2>Choose a new password</h2>
+            <p class="account-auth__lead">This link expires in 24 hours. Capital letters, lowercase letters, and numbers are all allowed.</p>
+            <form id="account-reset-form" class="bazi-form" novalidate>
+              <div class="form-row">
+                <label for="reset-password">New password</label>
+                <input id="reset-password" name="password" type="password" autocomplete="new-password" required minlength="6">
+              </div>
+              <div class="form-row">
+                <label for="reset-password2">Confirm password</label>
+                <input id="reset-password2" name="password2" type="password" autocomplete="new-password" required minlength="6">
+              </div>
+              <button type="submit" class="btn btn-primary">Save new password</button>
+              <div id="account-reset-message" class="form-message" hidden role="status"></div>
+            </form>
+          </div>
+
+          <div id="account-signed-out" class="account-auth">
+            <div class="account-auth__chooser" role="tablist" aria-label="Account options">
+              <button type="button" class="account-auth__choice" role="tab" id="account-tab-login" aria-controls="account-panel-login" aria-selected="true" data-account-mode="login" data-i18n="page.account.loginTitle" onclick="window.__totemSetAccountMode('login'); return false;">Sign In</button>
+              <button type="button" class="account-auth__choice" role="tab" id="account-tab-register" aria-controls="account-panel-register" aria-selected="false" data-account-mode="register" data-i18n="page.account.registerTitle" onclick="window.__totemSetAccountMode('register'); return false;">Create Free Account</button>
+            </div>
+
+            <div id="account-panel-login" class="account-card account-auth__panel" role="tabpanel" aria-labelledby="account-tab-login" data-account-panel="login">
+              <h2 data-i18n="page.account.loginTitle">Sign In</h2>
+              <p class="account-auth__lead" data-i18n="page.account.loginLead">Welcome back — enter your details below.</p>
+              <form id="account-login-form" class="bazi-form" novalidate>
+                <div class="form-row">
+                  <label for="login-identifier" data-i18n="page.account.identifier">Email or phone</label>
+                  <input id="login-identifier" name="identifier" type="text" autocomplete="username" required>
+                  <p class="form-hint" data-i18n="page.account.identifierHint">You can also use your username if you set one.</p>
+                </div>
+                <div class="form-row">
+                  <label for="login-password" data-i18n="page.account.password">Password</label>
+                  <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+                </div>
+                <label class="account-stay-signed-in">
+                  <input id="login-stay" name="staySignedIn" type="checkbox" checked>
+                  <span data-i18n="page.account.staySignedIn">Leave me signed in on this device</span>
+                </label>
+                <button type="submit" class="btn btn-primary" data-i18n="page.account.signIn">Sign In</button>
+                <div id="account-login-message" class="form-message" hidden role="status"></div>
+              </form>
+              <p class="account-auth__switch">
+                <button type="button" id="account-forgot-toggle" data-i18n="page.account.forgot">Forgot my password?</button>
+              </p>
+              <form id="account-forgot-form" class="bazi-form" hidden>
+                <p class="form-hint" data-i18n="page.account.forgotLead">Enter the email or phone on your account. We'll email you a link to choose a new password.</p>
+                <div class="form-row">
+                  <label for="forgot-identifier" data-i18n="page.account.identifier">Email or phone</label>
+                  <input id="forgot-identifier" name="identifier" type="text" autocomplete="username">
+                </div>
+                <button type="submit" class="btn btn-primary" data-i18n="page.account.forgotSend">Email me a reset link</button>
+                <div id="account-forgot-message" class="form-message" hidden role="status"></div>
+              </form>
+              <p class="account-auth__switch">
+                <button type="button" data-account-mode="register" data-i18n="page.account.switchToRegister" onclick="window.__totemSetAccountMode('register'); return false;">Need an account? Create one free</button>
+              </p>
+            </div>
+
+            <div id="account-panel-register" class="account-card account-auth__panel" role="tabpanel" aria-labelledby="account-tab-register" data-account-panel="register" hidden aria-hidden="true">
+              <h2 data-i18n="page.account.registerTitle">Create Free Account</h2>
+              <p class="account-auth__lead" data-i18n="page.account.registerLead">New here? Join free with email or phone.</p>
+              <p class="account-auth__hint" data-i18n="page.account.registerHint">Choose a username, add an email or phone number, and create a password. Your username is your public name across the site, directory, and app.</p>
+              <form id="account-register-form" class="bazi-form" autocomplete="off" novalidate>
+                <div class="form-row">
+                  <label for="register-username" data-i18n="page.account.username">Username</label>
+                  <input id="register-username" name="username" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+">
+                  <p class="form-hint" data-i18n="page.account.usernameHint">3–32 characters. Capital letters, lowercase letters, numbers, and underscores all count.</p>
+                </div>
+                <div class="form-row">
+                  <label for="register-email" data-i18n="page.account.email">Email</label>
+                  <input id="register-email" name="email" type="email" autocomplete="email">
+                </div>
+                <div class="form-row">
+                  <label for="register-phone-local" data-i18n="page.account.phone">Phone</label>
+                  <div class="phone-field">
+                    <select id="register-phone-code" name="phoneCountry" aria-label="Country calling code"></select>
+                    <input id="register-phone-local" name="phoneLocal" type="tel" autocomplete="tel-national" inputmode="tel">
+                  </div>
+                </div>
+                <div class="form-pair">
+                  <div class="form-row">
+                    <label for="register-password" data-i18n="page.account.password">Password</label>
+                    <input id="register-password" name="password" type="password" autocomplete="new-password" required minlength="6">
+                  </div>
+                  <div class="form-row">
+                    <label for="register-password2" data-i18n="page.account.passwordConfirm">Confirm password</label>
+                    <input id="register-password2" name="password2" type="password" autocomplete="new-password" required minlength="6">
+                  </div>
+                </div>
+                <p class="form-hint form-note-gap" data-i18n="page.account.passwordHint">At least 6 characters. Capital letters, lowercase letters, and numbers are all welcome.</p>
+
+                <div class="account-birth-block">
+                  <div class="form-pair">
+                    <div class="form-row">
+                      <label for="register-birth-date"><span data-i18n="page.account.birthDateClaimed">Birth date</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                      <input id="register-birth-date" name="birthDate" type="date">
+                    </div>
+                    <div class="form-row">
+                      <label for="register-birth-time"><span data-i18n="page.account.birthTimeClaimed">Birth time</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                      <input id="register-birth-time" name="birthTime" type="time">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="register-birth-city"><span data-i18n="page.account.birthPlace">Birth city</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                    <div class="bazi-city-field">
+                      <input id="register-birth-city" name="birthPlace" type="text" autocomplete="off" data-i18n-placeholder="page.calc.cityPlaceholder" placeholder="Type any city — e.g. London, Denver, Pokhara" maxlength="200">
+                      <ul class="bazi-city-suggestions" id="register-birth-city-suggestions" hidden></ul>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label for="register-birth-name"><span data-i18n="page.account.birthName">Birth name</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                    <input id="register-birth-name" name="birthName" type="text" autocomplete="name" maxlength="80" data-i18n-placeholder="page.account.birthNamePlaceholder" placeholder="Legal or birth name — private, not your public username">
+                  </div>
+                  <p class="account-optional-note" data-i18n="page.account.birthOptionalNote">* These fields are optional.</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary" data-i18n="page.account.create">Create Account</button>
+                <div id="account-register-message" class="form-message" hidden role="status"></div>
+              </form>
+              <p class="account-auth__switch">
+                <button type="button" data-account-mode="login" data-i18n="page.account.switchToLogin" onclick="window.__totemSetAccountMode('login'); return false;">Already have an account? Sign in</button>
+              </p>
+            </div>
+          </div>
+
+          <div id="account-signed-in" class="account-signed-in-grid" hidden>
+            <div class="account-card">
+              <div id="account-status" class="account-status"></div>
+              <form id="account-profile-form" class="bazi-form" novalidate>
+                <div class="form-row">
+                  <label for="profile-username" data-i18n="page.account.username">Username</label>
+                  <input id="profile-username" type="text" readonly>
+                </div>
+                <div class="form-row">
+                  <label for="profile-email" data-i18n="page.account.email">Email</label>
+                  <input id="profile-email" name="email" type="email" autocomplete="email">
+                </div>
+                <div class="form-row">
+                  <label for="profile-phone-local" data-i18n="page.account.phone">Phone</label>
+                  <div class="phone-field">
+                    <select id="profile-phone-code" name="phoneCountry" aria-label="Country calling code"></select>
+                    <input id="profile-phone-local" name="phoneLocal" type="tel" autocomplete="tel-national" inputmode="tel">
+                  </div>
+                </div>
+                <div class="account-actions">
+                  <button type="submit" class="btn btn-primary" data-i18n="page.account.save">Save profile</button>
+                  <button type="button" class="btn btn-outline" id="account-logout" data-i18n="page.account.signOut">Sign out</button>
+                </div>
+                <div id="account-profile-message" class="form-message" hidden role="status"></div>
+              </form>
+            </div>
+
+            <div class="account-card" id="account-listing-card">
+              <h2 data-i18n="page.account.listingTitle">Directory Listing</h2>
+              <p class="form-hint" data-i18n="page.account.listingLead">Edit how you appear in Totem Connections. Your username is your public name. Soft updates (intro, email) go live right away when your listing is already approved. Changing animals or resubmitting a rejected listing sends it back for review.</p>
+              <div id="account-listing-status" class="account-status" aria-live="polite"></div>
+              <div id="account-listing-empty" hidden>
+                <p class="form-hint" data-i18n="page.account.listingNone">You are not listed yet.</p>
+                <a class="btn btn-outline" href="connections.html" data-i18n="page.account.listingJoinLink">Join from Connections</a>
+              </div>
+              <div id="account-listing-preview" class="listing-preview" hidden></div>
+              <form id="account-listing-form" class="bazi-form" hidden novalidate>
+                <h3 class="account-subhead" data-i18n="page.account.listingEdit">Edit listing details</h3>
+                <div class="form-row">
+                  <label for="listing-intro" data-i18n="page.account.listingIntro">Short intro</label>
+                  <textarea id="listing-intro" name="intro" rows="3" maxlength="280" data-i18n-placeholder="discover.introPlaceholder" placeholder="Short intro (optional)"></textarea>
+                  <p class="form-hint" data-i18n="page.account.listingIntroHint">Up to 280 characters. Shown on your public directory card.</p>
+                </div>
+                <div class="form-row">
+                  <label for="listing-contact-email" data-i18n="page.account.listingContactEmail">Public contact email</label>
+                  <input id="listing-contact-email" name="contactEmail" type="email" autocomplete="email">
+                  <p class="form-hint" data-i18n="page.account.listingContactHint">Optional. Only shown if you provide it.</p>
+                </div>
+                <div class="form-row">
+                  <label data-i18n="page.account.listingAnimals">Your four guides</label>
+                  <p class="form-hint" data-i18n="page.account.listingAnimalsHint">To change animals, recalculate and join again from Connections after removing this listing.</p>
+                </div>
+                <div class="account-actions">
+                  <button type="submit" class="btn btn-primary" data-i18n="page.account.listingSave">Save listing</button>
+                  <button type="button" class="btn btn-outline" id="account-listing-remove" data-i18n="page.account.listingRemove">Remove listing</button>
+                  <a class="btn btn-outline" href="connections.html" data-i18n="page.account.manageDirectory">Open Connections directory</a>
+                </div>
+                <div id="account-listing-message" class="form-message" hidden role="status"></div>
+              </form>
+            </div>
+
+            <div class="account-card">
+              <h2 data-i18n="page.account.birthDetailsTitle">Birth details</h2>
+              <p class="form-hint" data-i18n="page.account.birthDetailsLead">Save your birth date, place, and time for your own records whenever you’re ready.</p>
+              <form id="account-birth-details-form" class="bazi-form" novalidate>
+                <div class="form-row">
+                  <label for="profile-birth-name"><span data-i18n="page.account.birthName">Birth name</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                  <input id="profile-birth-name" name="birthName" type="text" autocomplete="name" maxlength="80" data-i18n-placeholder="page.account.birthNamePlaceholder" placeholder="Legal or birth name — private, not your public username">
+                </div>
+                <div class="form-pair">
+                  <div class="form-row">
+                    <label for="profile-birth-date"><span data-i18n="page.account.birthDateClaimed">Birth date</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                    <input id="profile-birth-date" name="birthDate" type="date">
+                  </div>
+                  <div class="form-row">
+                    <label for="profile-birth-time"><span data-i18n="page.account.birthTimeClaimed">Birth time</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                    <input id="profile-birth-time" name="birthTime" type="time">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="profile-birth-city"><span data-i18n="page.account.birthPlace">Birth city</span><span class="field-asterisk" aria-hidden="true">*</span></label>
+                  <div class="bazi-city-field">
+                    <input id="profile-birth-city" name="birthPlace" type="text" autocomplete="off" data-i18n-placeholder="page.calc.cityPlaceholder" placeholder="Type any city — e.g. London, Denver, Pokhara" maxlength="200">
+                    <ul class="bazi-city-suggestions" id="profile-birth-city-suggestions" hidden></ul>
+                  </div>
+                </div>
+                <p class="account-optional-note" data-i18n="page.account.birthOptionalNote">* These fields are optional.</p>
+                <button type="submit" class="btn btn-primary" id="account-birth-details-submit" data-i18n="page.account.birthDetailsSave">Save birth details</button>
+                <div id="account-birth-details-message" class="form-message" hidden role="status"></div>
+              </form>
+
+              <h2 class="account-subhead" data-i18n="page.account.birthTitle">Optional verified tier</h2>
+              <p class="form-hint" data-i18n="page.account.birthLead">If you’d like a public trust badge later, you can optionally upload an ID or birth certificate for review. Completely optional — your profile works without it.</p>
+              <div id="account-birth-status" class="account-status" aria-live="polite"></div>
+
+              <h3 class="account-subhead" data-i18n="page.account.dateVerifyTitle">Verified badge (optional)</h3>
+              <form id="account-birth-form" class="bazi-form" novalidate>
+                <div class="form-row">
+                  <label for="birth-date" data-i18n="page.account.birthDate">Birth date on ID</label>
+                  <input id="birth-date" name="birthDate" type="date" required>
+                </div>
+                <div class="form-row">
+                  <label for="birth-id" data-i18n="page.account.birthId">Photo of driver’s license, passport, or other ID</label>
+                  <input id="birth-id" name="idDocument" type="file" accept="image/*,.jpg,.jpeg,.png,.webp,.pdf,application/pdf" capture="environment" required>
+                  <p class="form-hint" data-i18n="page.account.birthIdHint">Only if you want the Verified badge. Clear photo or scan under 8 MB. Reviewed privately — never shown in the directory.</p>
+                </div>
+                <div class="form-row">
+                  <label for="birth-note" data-i18n="page.account.birthNote">Note (optional)</label>
+                  <textarea id="birth-note" name="note" rows="2" maxlength="400"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="account-birth-submit" data-i18n="page.account.birthSubmit">Submit for Verified review</button>
+                <div id="account-birth-message" class="form-message" hidden role="status"></div>
+              </form>
+
+              <h3 class="account-subhead" data-i18n="page.account.timeVerifyTitle">Time Verified badge (optional)</h3>
+              <p class="form-hint" data-i18n="page.account.timeVerifyLead">Only after the standard Verified badge. Upload a birth certificate showing time of birth, or a sworn declaration by you or your parents stating the correct birth time.</p>
+              <form id="account-birth-time-form" class="bazi-form" novalidate>
+                <div class="form-row">
+                  <label for="birth-time" data-i18n="page.account.birthTime">Birth time on document</label>
+                  <input id="birth-time" name="birthTime" type="time" required>
+                </div>
+                <div class="form-row">
+                  <label for="birth-time-id" data-i18n="page.account.birthTimeId">Birth certificate or sworn declaration</label>
+                  <input id="birth-time-id" name="timeDocument" type="file" accept="image/*,.jpg,.jpeg,.png,.webp,.pdf,application/pdf" capture="environment" required>
+                  <p class="form-hint" data-i18n="page.account.birthTimeIdHint">JPG, PNG, WEBP, or PDF under 8 MB. Private review only.</p>
+                </div>
+                <div class="form-row">
+                  <label for="birth-time-note" data-i18n="page.account.birthNote">Note (optional)</label>
+                  <textarea id="birth-time-note" name="note" rows="2" maxlength="400" data-i18n-placeholder="page.account.birthNotePlaceholder" placeholder="e.g. Sworn declaration signed by parent"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="account-birth-time-submit" data-i18n="page.account.birthTimeSubmit">Submit for Time Verified review</button>
+                <div id="account-birth-time-message" class="form-message" hidden role="status"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="footer-brand">Totem Astrology&trade;</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="calculator.html">Calculator</a>
+          <a href="connections.html">Connections</a>
+          <a href="account.html" data-i18n="nav.account">User Profile</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="faq.html">FAQ</a>
+          <a href="terms.html">Terms &amp; IP</a>
+          <a href="contact.php">Contact</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 Travis Barrett LeBlanc / TotemAstrology.com. Totem Astrology&trade;. All rights reserved. <a href="terms.html">Terms &amp; IP</a></p>
+      </div>
+    </footer>
+  </div>
+  <script src="js/stars.js?v=20260618"></script>
+  <script src="js/main.js?v=20260713c"></script>
+  <script>
+    if (location.hash === '#register') window.__totemSetAccountMode('register');
+  </script>
+  <script type="module" src="js/i18n-boot.js?v=20260718j"></script>
+  <script type="module" src="js/account.js?v=20261007a"></script>
+</body>
+</html>

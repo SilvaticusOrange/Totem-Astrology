@@ -1,0 +1,75 @@
+# TotemAstrology.com — GoDaddy cPanel
+# Upload this file to public_html/ and rename it to:  .htaccess
+# (Mac hides dotfiles — use cPanel Rename after upload, or upload as htaccess-upload.txt then rename)
+#
+# VERIFY: curl -sI https://totemastrology.com/ | grep -i cache-control
+# You should see: Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+# If nothing appears, .htaccess is missing or mod_headers is off.
+#
+DirectoryIndex index.php index.html
+
+# Redirect www to non-www (optional — remove if you prefer www)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.totemastrology\.com [NC]
+RewriteRule ^(.*)$ https://totemastrology.com/$1 [L,R=301]
+
+# Force HTTPS when SSL is active on GoDaddy
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^(www\.)?totemastrology\.com$ [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Always fetch fresh HTML — avoids stale pages in normal browser tabs
+<IfModule mod_headers.c>
+  Header always unset Cache-Control
+  Header always unset Expires
+  Header always unset Pragma
+  <FilesMatch "\.(html|htm|php)$">
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, private"
+    Header always set Pragma "no-cache"
+    Header always set Expires "0"
+    Header unset ETag
+  </FilesMatch>
+  <FilesMatch "\.css$">
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, private"
+    Header always set Pragma "no-cache"
+    Header always set Expires "0"
+  </FilesMatch>
+  <FilesMatch "\.js$">
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, private"
+    Header always set Pragma "no-cache"
+    Header always set Expires "0"
+  </FilesMatch>
+  FileETag None
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Redirect old alternate URL back to the main Totem Astrology page
+RewriteRule ^values-triangles\.html$ /totem-astrology.html [R=301,L]
+
+# About page — support /about as well as /about.html
+RewriteRule ^about/?$ /about.html [L]
+
+# Contact page — route through PHP so the page works even when contact.html alone 404s
+RewriteRule ^contact\.html$ /contact.php [L]
+RewriteRule ^contact/?$ /contact.php [L]
+
+# How It Works page
+RewriteRule ^how-it-works/?$ /how-it-works.html [L]
+
+# Yin & Yang page
+RewriteRule ^yin-yang/?$ /yin-yang.html [L]
+
+# Learn pages
+RewriteRule ^four-totem-guides/?$ /four-totem-guides.html [L]
+RewriteRule ^nepal-time/?$ /nepal-time.html [L]
+RewriteRule ^five-elements/?$ /five-elements.html [L]
+
+# FAQ
+RewriteRule ^faq/?$ /faq.html [L]
+
+# Terms & intellectual property
+RewriteRule ^terms/?$ /terms.html [L]

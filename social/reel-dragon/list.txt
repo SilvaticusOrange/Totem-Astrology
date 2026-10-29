@@ -1,0 +1,13 @@
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_00.png'
+duration 3.0
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_01.png'
+duration 3.2
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_02.png'
+duration 3.0
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_03.png'
+duration 3.5
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_04.png'
+duration 3.2
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_05.png'
+duration 4.0
+file '/Users/travisleblanc/Projects/totem-astrology/social/reel-dragon/beat_05.png'

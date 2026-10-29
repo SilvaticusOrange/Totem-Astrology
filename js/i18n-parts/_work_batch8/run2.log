@@ -1,0 +1,41 @@
+EN keys: 619
+
+=== he via alibaba->he ===
+  cached=475 pending=144
+  10/144 (total 485)
+  20/144 (total 495)
+  retry 1 wait=8.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 2 wait=16.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 3 wait=24.0s [alibaba/he]: 'NoneType' object is not subscriptable
+/Users/travisleblanc/Library/Python/3.9/lib/python/site-packages/translators/server.py:243: UserWarning: GetLanguageMapError: .
+The function make_temp_language_map() works.
+  warnings.warn(f'GetLanguageMapError: {str(e)}.\nThe function make_temp_language_map() works.')
+  30/144 (total 505)
+  retry 1 wait=8.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 2 wait=16.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 3 wait=24.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  40/144 (total 515)
+  50/144 (total 525)
+  retry 1 wait=8.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 2 wait=16.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 3 wait=24.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  60/144 (total 535)
+  retry 1 wait=8.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 2 wait=16.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 3 wait=24.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  70/144 (total 545)
+  retry 1 wait=8.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 2 wait=16.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  retry 3 wait=24.0s [alibaba/he]: 'NoneType' object is not subscriptable
+  80/144 (total 555)
+  90/144 (total 565)
+  100/144 (total 575)
+  110/144 (total 585)
+  120/144 (total 595)
+  130/144 (total 605)
+  140/144 (total 615)
+  complete=619 missing=0
+
+=== zu via alibaba->zu ===
+  cached=240 pending=379
+  retry 1 wait=8.0s [alibaba/zu]: 'NoneType' object is not subscriptable

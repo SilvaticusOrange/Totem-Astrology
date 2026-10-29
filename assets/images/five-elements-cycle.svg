@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 460" fill="none" role="img" aria-labelledby="fiveElementsTitle fiveElementsDesc">
+  <title id="fiveElementsTitle">Five Elements generating and controlling cycles</title>
+  <desc id="fiveElementsDesc">Water, Wood, Fire, Earth, and Metal arranged in a circle. Gold arrows show the generating cycle around the ring. Purple arrows form an inner pentagram showing the controlling cycle: Water controls Fire, Fire controls Metal, Metal controls Wood, Wood controls Earth, and Earth controls Water.</desc>
+  <defs>
+    <radialGradient id="feBg" cx="50%" cy="44%" r="62%">
+      <stop offset="0%" stop-color="#1a2236"/>
+      <stop offset="55%" stop-color="#121829"/>
+      <stop offset="100%" stop-color="#0a0e1a"/>
+    </radialGradient>
+    <radialGradient id="feGlow" cx="50%" cy="44%" r="45%">
+      <stop offset="0%" stop-color="#c9a962" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#c9a962" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="feGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8d5a3"/>
+      <stop offset="100%" stop-color="#8a7344"/>
+    </linearGradient>
+    <marker id="feGenArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#e8d5a3"/>
+    </marker>
+    <marker id="feCtrlArrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#9a8fc4"/>
+    </marker>
+  </defs>
+
+  <rect width="420" height="460" fill="url(#feBg)"/>
+  <rect width="420" height="460" fill="url(#feGlow)"/>
+
+  <!-- decorative stars -->
+  <g fill="#e8d5a3" opacity="0.35">
+    <circle cx="36" cy="42" r="1"/>
+    <circle cx="382" cy="58" r="1.1"/>
+    <circle cx="48" cy="360" r="0.9"/>
+    <circle cx="368" cy="372" r="1"/>
+  </g>
+
+  <!-- controlling pentagram (drawn first, behind nodes) -->
+  <g stroke="#6b5b95" stroke-opacity="0.72" stroke-width="1.35" fill="none" marker-end="url(#feCtrlArrow)">
+    <path d="M210 82 L273.4 311.1"/>
+    <path d="M273.4 311.1 L81.1 181.4"/>
+    <path d="M81.1 181.4 L318.9 181.4"/>
+    <path d="M318.9 181.4 L126.6 311.1"/>
+    <path d="M126.6 311.1 L210 82"/>
+  </g>
+
+  <!-- generating cycle arcs (clockwise around circle) -->
+  <g stroke="url(#feGold)" stroke-width="1.5" fill="none" marker-end="url(#feGenArrow)" opacity="0.92">
+    <path d="M210 82 A125 125 0 0 1 318.9 181.4"/>
+    <path d="M318.9 181.4 A125 125 0 0 1 273.4 311.1"/>
+    <path d="M273.4 311.1 A125 125 0 0 1 126.6 311.1"/>
+    <path d="M126.6 311.1 A125 125 0 0 1 81.1 181.4"/>
+    <path d="M81.1 181.4 A125 125 0 0 1 210 82"/>
+  </g>
+
+  <!-- center -->
+  <g transform="translate(210 210)">
+    <circle r="4" fill="#c9a962" fill-opacity="0.85"/>
+    <path d="M0 -22 L0 22 M-22 0 L22 0" stroke="#e8d5a3" stroke-opacity="0.25" stroke-width="0.75"/>
+  </g>
+
+  <!-- Water -->
+  <g transform="translate(210 82)">
+    <circle r="34" fill="#121829" stroke="#4a90c4" stroke-width="1.5"/>
+    <circle r="34" fill="#4a90c4" fill-opacity="0.12"/>
+    <path d="M-16 10 C-16 1 -8 -9 2 -8 C11 -7 17 0 16 7 L12 8 C5 1 -5 1 -11 5 C-14 8 -16 10 -16 10 Z" fill="#4a90c4" fill-opacity="0.55" stroke="#7eb8e8" stroke-width="1.1" stroke-linejoin="round"/>
+    <path d="M9 -9 C14 -13 18 -7 16 -1 C14 3 10 1 9 -4 C8 -6 8 -8 9 -9 Z" fill="#7eb8e8" fill-opacity="0.92"/>
+    <path d="M-8 3 C0 -3 8 1" stroke="#7eb8e8" stroke-width="0.85" fill="none" opacity="0.55"/>
+    <path d="M-3 6 C5 0 11 4" stroke="#a8d4f0" stroke-width="0.75" fill="none" opacity="0.45"/>
+    <text y="48" text-anchor="middle" fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em">WATER</text>
+  </g>
+
+  <!-- Wood -->
+  <g transform="translate(318.9 181.4)">
+    <circle r="34" fill="#121829" stroke="#5a9a5a" stroke-width="1.5"/>
+    <circle r="34" fill="#5a9a5a" fill-opacity="0.12"/>
+    <rect x="-3" y="4" width="6" height="10" rx="1" fill="#6b4423"/>
+    <path d="M-5 14 L5 14 L3 16 L-3 16 Z" fill="#5a3a1e"/>
+    <path d="M0 4 L-9 -2" stroke="#6b4423" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M0 4 L9 -2" stroke="#6b4423" stroke-width="1.8" stroke-linecap="round"/>
+    <ellipse cx="0" cy="-3" rx="13" ry="9" fill="#5a9a5a"/>
+    <ellipse cx="-7" cy="-4" rx="7" ry="6" fill="#7ec87e"/>
+    <ellipse cx="7" cy="-4" rx="7" ry="6" fill="#7ec87e"/>
+    <ellipse cx="0" cy="-6" rx="9" ry="7" fill="#8edc8e"/>
+    <text y="48" text-anchor="middle" fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em">WOOD</text>
+  </g>
+
+  <!-- Fire -->
+  <g transform="translate(273.4 311.1)">
+    <circle r="34" fill="#121829" stroke="#c45c3e" stroke-width="1.5"/>
+    <circle r="34" fill="#c45c3e" fill-opacity="0.12"/>
+    <path d="M-10 13 C-11 7 -10 1 -7 -3 C-5 -7 -2 -11 0 -9 C2 -13 5 -11 7 -6 C10 -1 11 5 9 10 C6 13 0 14 -10 13 Z" fill="#f27463"/>
+    <path d="M-4 11 C-5 7 -4 3 -2 0 C-1 -2 0 -3 0 -1 C0 -3 1 -2 2 0 C4 3 5 7 4 11 C2 12 0 12 -4 11 Z" fill="#ffd966"/>
+    <text y="48" text-anchor="middle" fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em">FIRE</text>
+  </g>
+
+  <!-- Earth -->
+  <g transform="translate(126.6 311.1)">
+    <circle r="34" fill="#121829" stroke="#a89060" stroke-width="1.5"/>
+    <circle r="34" fill="#a89060" fill-opacity="0.12"/>
+    <path d="M-16 12 L-16 7 L-11 -5 L-5 3 L1 -9 L7 1 L12 -7 L16 7 L16 12 Z" fill="#a89060"/>
+    <path d="M-11 -5 L-9 3 L-7 -1 Z" fill="#d4bc82" fill-opacity="0.55"/>
+    <path d="M1 -9 L3 1 L5 -3 Z" fill="#d4bc82" fill-opacity="0.55"/>
+    <path d="M12 -7 L10 3 L8 -1 Z" fill="#c9a87a" fill-opacity="0.5"/>
+    <text y="48" text-anchor="middle" fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em">EARTH</text>
+  </g>
+
+  <!-- Metal -->
+  <g transform="translate(81.1 181.4)">
+    <circle r="34" fill="#121829" stroke="#b8c0cc" stroke-width="1.5"/>
+    <circle r="34" fill="#b8c0cc" fill-opacity="0.1"/>
+    <path d="M0 -11 L9 -1 L-9 -1 Z" fill="#d8e0ea"/>
+    <path d="M0 -11 L-5 -1 L0 -1 Z" fill="#b8c0cc"/>
+    <path d="M0 -11 L5 -1 L0 -1 Z" fill="#eef2f7"/>
+    <path d="M-9 -1 L9 -1 L0 11 Z" fill="#b8c0cc"/>
+    <path d="M-9 -1 L0 11 L0 -1 Z" fill="#9aa8b8"/>
+    <path d="M9 -1 L0 11 L0 -1 Z" fill="#eef2f7"/>
+    <text y="48" text-anchor="middle" fill="#e8d5a3" font-family="Georgia, serif" font-size="13" letter-spacing="0.08em">METAL</text>
+  </g>
+
+  <!-- cycle labels -->
+  <text x="210" y="392" text-anchor="middle" fill="#e8d5a3" font-family="Georgia, serif" font-size="14" letter-spacing="0.1em">THE GENERATING CYCLE</text>
+  <text x="210" y="412" text-anchor="middle" fill="#9aa3b8" font-family="system-ui, sans-serif" font-size="11.5">Water &#8594; Wood &#8594; Fire &#8594; Earth &#8594; Metal &#8594; Water &#8230;</text>
+
+  <!-- legend -->
+  <g font-family="system-ui, sans-serif" font-size="11" fill="#9aa3b8">
+    <line x1="72" y1="434" x2="98" y2="434" stroke="#e8d5a3" stroke-width="1.5" marker-end="url(#feGenArrow)"/>
+    <text x="106" y="438">Generating &mdash; nourishes the next element around the circle</text>
+    <line x1="72" y1="452" x2="98" y2="452" stroke="#9a8fc4" stroke-width="1.35" marker-end="url(#feCtrlArrow)"/>
+    <text x="106" y="456">Controlling &mdash; keeps another element in check (pentagram within)</text>
+  </g>
+</svg>
